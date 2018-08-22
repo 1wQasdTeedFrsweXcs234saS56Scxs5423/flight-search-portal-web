@@ -1,19 +1,16 @@
 {
-  "name": "angular-starter",
-  "version": "7.5.0",
-  "description": "An Angular Webpack Starter kit featuring Angular (Router, Http, Forms, Services, Tests, E2E, Coverage), Karma, Protractor, Jasmine, Istanbul, TypeScript, and Webpack by Tipe.io",
+  "name": "flight-search-portal-web",
+  "version": "1.0.0",
+  "description": "Flight search web app for one-way and round trips",
   "keywords": [
     "angular",
-    "angular2",
-    "angular4",
     "angular5",
     "webpack",
     "typescript",
-    "tipe",
-    "tipe.io"
+    "flight search app"
   ],
-  "author": "Patrick Stapleton <patrick@tipe.io>",
-  "homepage": "https://github.com/gdi2290/angular-starter",
+  "author": "Ankit Tanna <ankittanna@hotmail.com>",
+  "homepage": "",
   "license": "MIT",
   "scripts": {
     "build:aot:prod": "rimraf dist compiled && cross-env BUILD_AOT=1 SOURCE_MAP=0 npm run webpack -- --config config/webpack.prod.js --progress --profile --bail",
@@ -171,10 +168,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gdi2290/angular-starter.git"
+    "url": "https://github.com/1wQasdTeedFrsweXcs234saS56Scxs5423/flight-search-portal-web.git"
   },
   "bugs": {
-    "url": "https://github.com/gdi2290/angular-starter/issues"
+    "url": "https://github.com/1wQasdTeedFrsweXcs234saS56Scxs5423/flight-search-portal-web/issues"
   },
   "engines": {
     "node": ">= 8.0.0",
