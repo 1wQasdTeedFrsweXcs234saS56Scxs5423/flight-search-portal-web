@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { environment } from 'environments/environment';
 import { AppState } from './app.service';
+import { faFighterJet } from '@fortawesome/free-solid-svg-icons';
+
 
 export const ROOT_SELECTOR = 'app';
 
@@ -23,6 +25,7 @@ export class AppComponent implements OnInit {
   public showDevModule: boolean = environment.showDevModule;
 
   public isOneWaySearch: boolean = true;
+  public faFighterJet: any = faFighterJet;
 
   constructor(
     public appState: AppState
