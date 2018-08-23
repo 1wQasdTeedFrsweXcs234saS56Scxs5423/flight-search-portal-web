@@ -25,6 +25,25 @@
   </a>
 </nav>
 
+<div class="cd-tabs js-cd-tabs">
+  <nav>
+    <ul class="cd-tabs__navigation js-cd-navigation">
+      <li (click)="searchMode('oneWay')"><a data-content="oneWay" [ngClass]="{'cd-selected': !!isOneWaySearch}" href="#">One way</a></li>
+      <li (click)="searchMode('roundTrip')"><a data-content="roundTrip" [ngClass]="{'cd-selected': !isOneWaySearch}" href="#">Round trip</a></li>
+    </ul>
+  </nav>
+
+  <ul class="cd-tabs__content js-cd-content">
+    <li data-content="inbox" [ngClass]="{'cd-selected': isOneWaySearch}" *ngIf="!!isOneWaySearch">
+      <p>One Way form</p>
+    </li>
+
+    <li data-content="new" [ngClass]="{'cd-selected': !isOneWaySearch}" *ngIf="!isOneWaySearch">
+      <p>Round Trip form</p>
+    </li>
+  </ul>
+</div>
+
 <main>
   <router-outlet></router-outlet>
 </main>

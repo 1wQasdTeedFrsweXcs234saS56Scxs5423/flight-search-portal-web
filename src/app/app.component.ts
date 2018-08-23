@@ -8,6 +8,9 @@ export const ROOT_SELECTOR = 'app';
   selector: ROOT_SELECTOR,
   encapsulation: ViewEncapsulation.None,
   styleUrls: [
+    './app.component.reset.css',
+    './app.component.demo.css',
+    './app.component.style.css',
     './app.component.css'
   ],
   templateUrl: './app.component.html'
@@ -19,12 +22,18 @@ export class AppComponent implements OnInit {
   public url = 'https://tipe.io';
   public showDevModule: boolean = environment.showDevModule;
 
+  public isOneWaySearch: boolean = true;
+
   constructor(
     public appState: AppState
   ) {}
 
   public ngOnInit() {
     console.log('Initial App State', this.appState.state);
+  }
+
+  public searchMode(mode: string) {
+    this.isOneWaySearch = mode !== '' && mode === 'oneWay';
   }
 
 }
