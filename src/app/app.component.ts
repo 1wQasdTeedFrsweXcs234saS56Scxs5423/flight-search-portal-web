@@ -3,7 +3,6 @@ import { environment } from 'environments/environment';
 import { AppState } from './app.service';
 import { faFighterJet } from '@fortawesome/free-solid-svg-icons';
 
-
 export const ROOT_SELECTOR = 'app';
 
 @Component({
@@ -11,8 +10,6 @@ export const ROOT_SELECTOR = 'app';
   encapsulation: ViewEncapsulation.None,
   styleUrls: [
     './app.component.reset.css',
-    './app.component.demo.css',
-    './app.component.style.css',
     './app.component.css'
   ],
   templateUrl: './app.component.html'
@@ -26,6 +23,7 @@ export class AppComponent implements OnInit {
 
   public isOneWaySearch: boolean = true;
   public faFighterJet: any = faFighterJet;
+  public defaultSearchFlightMode: string = 'oneWay';
 
   constructor(
     public appState: AppState

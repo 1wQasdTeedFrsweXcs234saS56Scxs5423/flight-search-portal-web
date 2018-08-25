@@ -1,50 +1,5 @@
-<nav>
-  <a [routerLink]=" ['./'] "
-     routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-    Index
-  </a>
-  <a [routerLink]=" ['./home'] "
-     routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-    Home
-  </a>
-  <a [routerLink]=" ['./detail'] "
-     routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-    Detail
-  </a>
-  <a [routerLink]=" ['./barrel'] "
-     routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-    Barrel
-  </a>
-  <a [routerLink]=" ['./about'] "
-     routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-    About
-  </a>
-  <a *ngIf="showDevModule" [routerLink]=" ['./dev-module'] "
-     routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-    DevModule
-  </a>
-</nav>
-
-<div class="cd-tabs js-cd-tabs">
-  <nav>
-    <ul class="cd-tabs__navigation js-cd-navigation">
-      <li (click)="searchMode('oneWay')"><a data-content="oneWay" [ngClass]="{'cd-selected': !!isOneWaySearch}" href="#">One way</a></li>
-      <li (click)="searchMode('roundTrip')"><a data-content="roundTrip" [ngClass]="{'cd-selected': !isOneWaySearch}" href="#">Round trip</a></li>
-    </ul>
-  </nav>
-
-  <ul class="cd-tabs__content js-cd-content">
-    <li data-content="inbox" [ngClass]="{'cd-selected': isOneWaySearch}" *ngIf="!!isOneWaySearch">
-      <p>One Way form <fa-icon [icon]="faFighterJet"></fa-icon></p>
-    </li>
-
-    <li data-content="new" [ngClass]="{'cd-selected': !isOneWaySearch}" *ngIf="!isOneWaySearch">
-      <p>Round Trip form <fa-icon [icon]="faFighterJet" size="6x"></fa-icon></p>
-    </li>
-  </ul>
-</div>
-
 <main>
+  <search-flight [defaultSelected]="defaultSearchFlightMode"></search-flight>
   <router-outlet></router-outlet>
 </main>
 

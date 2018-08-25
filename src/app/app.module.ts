@@ -12,6 +12,7 @@ import { environment } from 'environments/environment';
 import { ROUTES } from './app.routes';
 // App is our top level component
 import { AppComponent } from './app.component';
+import { SearchFlightComponent } from './search-flight/search-flight.component';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
 import { HomeComponent } from './home';
@@ -45,6 +46,7 @@ interface StoreType {
   bootstrap: [ AppComponent ],
   declarations: [
     AppComponent,
+    SearchFlightComponent,
     AboutComponent,
     HomeComponent,
     NoContentComponent,
