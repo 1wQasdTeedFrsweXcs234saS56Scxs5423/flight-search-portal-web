@@ -367,3 +367,6 @@ header h1 {
 .cd-nugget-info .cd-nugget-info-arrow {
   fill: #6375ad;
 }
+.search-suggestions {
+  display: block;
+}

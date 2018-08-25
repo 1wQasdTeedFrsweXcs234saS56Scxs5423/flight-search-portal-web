@@ -6,13 +6,26 @@
     </ul>
   </nav>
 
-  <ul class="cd-tabs__content js-cd-content">
-    <li data-content="inbox" [ngClass]="{'cd-selected': isOneWaySearch}" *ngIf="!!isOneWaySearch">
-      <p>One Way form <fa-icon [icon]="faFighterJet"></fa-icon></p>
-    </li>
+  <form>
+    <ul class="cd-tabs__content js-cd-content">
+      <li data-content="inbox" [ngClass]="{'cd-selected': isOneWaySearch}" *ngIf="!!isOneWaySearch">
+        <label>From</label>
+        <input id="from-city-input" type="text" placeholder="From"/>
 
-    <li data-content="new" [ngClass]="{'cd-selected': !isOneWaySearch}" *ngIf="!isOneWaySearch">
-      <p>Round Trip form <fa-icon [icon]="faFighterJet" size="6x"></fa-icon></p>
-    </li>
-  </ul>
+        <label>To</label>
+        <input id="to-city-input" type="text" placeholder="To"/>
+
+        <label>Date</label>
+        <input id="onward-journey-date" type="date" placeholder="Onward"/>
+
+        <label>Date</label>
+        <input id="return-journey-date" type="date" placeholder="Return"/>
+        <!--<p>One Way form <fa-icon [icon]="faFighterJet"></fa-icon></p>-->
+      </li>
+
+      <li data-content="new" [ngClass]="{'cd-selected': !isOneWaySearch}" *ngIf="!isOneWaySearch">
+        <p>Round Trip form <fa-icon [icon]="faFighterJet" size="6x"></fa-icon></p>
+      </li>
+    </ul>
+  </form>
 </div>
