@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, PreloadAllModules } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { ReactiveFormsModule } from '@angular/forms';
+import { UtilsModule } from './utils/utils.module';
 
 /*
  * Platform and Environment providers/directives/pipes
@@ -63,6 +64,7 @@ interface StoreType {
     FormsModule,
     HttpClientModule,
     FontAwesomeModule,
+    UtilsModule,
     RouterModule.forRoot(ROUTES, {
       useHash: Boolean(history.pushState) === false,
       preloadingStrategy: PreloadAllModules

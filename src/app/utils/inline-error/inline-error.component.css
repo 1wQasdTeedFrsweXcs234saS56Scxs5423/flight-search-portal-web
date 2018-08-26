@@ -1,0 +1,8 @@
+.error {
+	color: #d80d0d;
+	margin-top: 10px;
+}
+
+.error label {
+	margin-left: 10px;
+}

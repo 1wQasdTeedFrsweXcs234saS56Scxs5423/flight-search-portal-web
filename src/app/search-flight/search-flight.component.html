@@ -14,7 +14,17 @@
             <label>From</label>
           </div>
           <div class="value">
-            <input id="from-city-input" formControlName="departureCity" type="text" placeholder="From" class="input-field" />
+            <input id="from-city-input" formControlName="departureCity" type="text" placeholder="From" class="input-field" (focus)="isDepartureCityFocused = true" (blur)="isDepartureCityFocused = false"/>
+            <inline-error *ngIf="isDepartureCityFocused && searchFlight.controls['departureCity'].hasError('pattern')" 
+                          [errorMessage]="config.invalidCharactersError"></inline-error>
+            <inline-error *ngIf="!isDepartureCityFocused && searchFlight.controls['departureCity'].touched && searchFlight.controls['departureCity'].hasError('required')" 
+                          [errorMessage]="config.departureRequiredError"></inline-error>
+            <inline-error *ngIf="!isDepartureCityFocused && searchFlight.controls['departureCity'].hasError('minlength')"
+                          [errorMessage]="config.departureCityMinLengthError" 
+                          [substituteMessage]="config.departureCityMinLength"></inline-error>
+            <inline-error *ngIf="isDepartureCityFocused && searchFlight.controls['departureCity'].hasError('maxlength')"
+                          [errorMessage]="config.departureCityMaxLengthError" 
+                          [substituteMessage]="config.departureCityMaxLength"></inline-error>
           </div>
         </div>
 
@@ -23,7 +33,18 @@
             <label>To</label>
           </div>
           <div class="value">
-            <input id="to-city-input" formControlName="arrivalCity" type="text" placeholder="To" class="input-field" />
+            <input id="to-city-input" formControlName="arrivalCity" type="text" placeholder="To" class="input-field" (focus)="isArrivalCityFocused = true" (blur)="isArrivalCityFocused = false"/>
+
+            <inline-error *ngIf="isArrivalCityFocused && searchFlight.controls['arrivalCity'].hasError('pattern')" 
+                          [errorMessage]="config.invalidCharactersError"></inline-error>
+            <inline-error *ngIf="!isArrivalCityFocused && searchFlight.controls['arrivalCity'].touched && searchFlight.controls['arrivalCity'].hasError('required')" 
+                          [errorMessage]="config.arrivalRequiredError"></inline-error>
+            <inline-error *ngIf="!isArrivalCityFocused && searchFlight.controls['arrivalCity'].hasError('minlength')"
+                          [errorMessage]="config.arrivalCityMinLengthError" 
+                          [substituteMessage]="config.arrivalCityMinLength"></inline-error>
+            <inline-error *ngIf="isArrivalCityFocused && searchFlight.controls['arrivalCity'].hasError('maxlength')"
+                          [errorMessage]="config.arrivalCityMaxLengthError" 
+                          [substituteMessage]="config.arrivalCityMaxLength"></inline-error>
           </div>
         </div>
 
@@ -32,7 +53,16 @@
             <label>Departure date</label>
           </div>
           <div class="value">
-            <input id="onward-journey-date" formControlName="departureDate" type="date" placeholder="Onward" class="input-field input-field-date" />
+            <input id="onward-journey-date" formControlName="departureDate" type="date" placeholder="Onward" class="input-field input-field-date" (focus)="setDepartureDateFlags()" (blur)="checkIfDateIsPresentDate('departure');checkIfDateIsValid('departure');checkIfReturnDateBeforeDepartureDate();isDepartureDateFocused = false"/>
+            <inline-error *ngIf="!isDepartureDateFocused && searchFlight.controls['departureDate'].touched && searchFlight.controls['departureDate'].hasError('required')" 
+                          [errorMessage]="config.departureDateRequiredError"></inline-error>
+
+            <inline-error *ngIf="!isDepartureDateFocused && searchFlight.controls['departureDate'].touched && isDepartureDateValid && !isDepartureDateInPresent" 
+                          [errorMessage]="config.departureDateInPastError"></inline-error>
+
+            <inline-error *ngIf="!isDepartureDateFocused && searchFlight.controls['departureDate'].touched && !isDepartureDateValid" 
+                          [errorMessage]="config.departureDatePatternError" 
+                          [substituteMessage]="config.dateFormat"></inline-error>
           </div>
         </div>
 
@@ -41,7 +71,19 @@
             <label>Return date</label>
           </div>
           <div class="value">
-            <input id="return-journey-date" formControlName="arrivalDate" type="date" placeholder="Return" class="input-field input-field-date" />
+            <input id="return-journey-date" formControlName="returnDate" type="date" placeholder="Return" class="input-field input-field-date" (focus)="setReturnDateFlags();" (blur)="checkIfDateIsPresentDate('arrival');checkIfDateIsValid('arrival');checkIfReturnDateBeforeDepartureDate();isArrivalDateFocused = false"/>
+            <inline-error *ngIf="!isArrivalDateFocused && searchFlight.controls['returnDate'].touched && searchFlight.controls['returnDate'].hasError('required')" 
+                          [errorMessage]="config.returnDateRequiredError"></inline-error>
+
+            <inline-error *ngIf="!isArrivalDateFocused && searchFlight.controls['returnDate'].touched && isReturnDateValid && !isReturnDateInPresent" 
+                          [errorMessage]="config.returnDateInPastError"></inline-error>
+
+            <inline-error *ngIf="!isArrivalDateFocused && searchFlight.controls['returnDate'].touched && !isReturnDateValid" 
+                          [errorMessage]="config.returnDatePatternError" 
+                          [substituteMessage]="config.dateFormat"></inline-error>
+
+            <inline-error *ngIf="isDepartureDateValid && isReturnDateValid && isReturnDateBeforeDepartureDate" 
+                          [errorMessage]="config.returnDateBeforeThanDepartureDateError"></inline-error>
           </div>
         </div>
 
@@ -59,8 +101,8 @@
             <label>Class</label>
           </div>
           <div class="value">
-            <input type="radio" formControlName="travelClass" name="flight-class" value="economy" checked>Economy
-            <input type="radio" formControlName="travelClass" name="flight-class" value="business">Business
+            <input type="radio" formControlName="travelClass" name="travelClass" value="economy" checked>Economy
+            <input type="radio" formControlName="travelClass" name="travelClass" value="business">Business
           </div>
         </div>
 
