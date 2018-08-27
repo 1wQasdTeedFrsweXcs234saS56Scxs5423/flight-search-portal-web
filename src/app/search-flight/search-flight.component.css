@@ -394,6 +394,19 @@ div.input .value .input-field-date {
   max-width: 225px;
 }
 
+.button-primary {
+    background: #00838F;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.button-primary[disabled] {
+  background: #758e90;
+}
+
 @media ( min-width: 960px ) {
 
 }

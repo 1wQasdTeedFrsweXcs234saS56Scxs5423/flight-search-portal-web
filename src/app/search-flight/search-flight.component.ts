@@ -37,7 +37,7 @@ export class SearchFlightComponent implements OnInit {
     departureDate: new FormControl('', Validators.required),
     returnDate: new FormControl('', Validators.required),
     numberOfPassengers: new FormControl('', [Validators.required, Validators.minLength(1), Validators.maxLength(1)]),
-    travelClass: new FormControl('', Validators.required)
+    travelClass: new FormControl('economy', Validators.required)
   });
 
   constructor(private _dateService: DateService) {}
@@ -47,10 +47,19 @@ export class SearchFlightComponent implements OnInit {
     // make airports list api call here
     this.isOneWaySearch = this.defaultSelected === 'oneWay';
     this.currentDate = this._dateService.getCurrentDate();
+
+    if (!!this.isOneWaySearch) {
+      this.searchFlight.removeControl('returnDate');
+    }
   }
 
   public searchMode(mode: string) {
     this.isOneWaySearch = mode !== '' && mode === 'oneWay';
+    if (!!this.isOneWaySearch) {
+      this.searchFlight.removeControl('returnDate');
+    } else {
+      this.searchFlight.addControl('returnDate', new FormControl('', Validators.required));
+    }
   }
 
 

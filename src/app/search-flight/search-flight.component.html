@@ -1,20 +1,20 @@
 <div class="cd-tabs js-cd-tabs">
   <nav>
     <ul class="cd-tabs__navigation js-cd-navigation">
-      <li (click)="searchMode('oneWay')"><a data-content="oneWay" [ngClass]="{'cd-selected': !!isOneWaySearch}" href="#">One way</a></li>
-      <li (click)="searchMode('roundTrip')"><a data-content="roundTrip" [ngClass]="{'cd-selected': !isOneWaySearch}" href="#">Round trip</a></li>
+      <li (click)="searchMode('oneWay')"><a data-content="oneWay" [ngClass]="{'cd-selected': !!isOneWaySearch}">One way</a></li>
+      <li (click)="searchMode('roundTrip')"><a data-content="roundTrip" [ngClass]="{'cd-selected': !isOneWaySearch}">Round trip</a></li>
     </ul>
   </nav>
 
   <form [formGroup]="searchFlight">
     <ul class="cd-tabs__content js-cd-content">
-      <li data-content="inbox" [ngClass]="{'cd-selected': isOneWaySearch}" *ngIf="!!isOneWaySearch">
+      <li class="cd-selected">
         <div class="input">
           <div class="label">
             <label>From</label>
           </div>
           <div class="value">
-            <input id="from-city-input" formControlName="departureCity" type="text" placeholder="From" class="input-field" (focus)="isDepartureCityFocused = true" (blur)="isDepartureCityFocused = false"/>
+            <input id="from-city-input" formControlName="departureCity" type="text" placeholder="From" class="input-field" (focus)="isDepartureCityFocused = true" (blur)="isDepartureCityFocused = false"/>.
             <inline-error *ngIf="isDepartureCityFocused && searchFlight.controls['departureCity'].hasError('pattern')" 
                           [errorMessage]="config.invalidCharactersError"></inline-error>
             <inline-error *ngIf="!isDepartureCityFocused && searchFlight.controls['departureCity'].touched && searchFlight.controls['departureCity'].hasError('required')" 
@@ -66,7 +66,7 @@
           </div>
         </div>
 
-        <div class="input">
+        <div class="input" *ngIf="!isOneWaySearch">
           <div class="label">
             <label>Return date</label>
           </div>
@@ -92,7 +92,10 @@
             <label>Passengers</label>
           </div>
           <div class="value">
-            <input formControlName="numberOfPassengers" type="number" name="number-of-passengers" class="input-field input-field-passengers" min="1" max="5" value="1">
+            <input formControlName="numberOfPassengers" type="number" name="number-of-passengers" class="input-field input-field-passengers" min="1" max="5" value="1" (focus)="isNumberOfPassengersFocused = true;" (blur)="isNumberOfPassengersFocused = false;">
+            <inline-error *ngIf="!isNumberOfPassengersFocused && searchFlight.controls['numberOfPassengers'].touched && searchFlight.controls['numberOfPassengers'].hasError('required')" [errorMessage]="config.numberOfPassengersRequiredError"></inline-error>
+            <inline-error *ngIf="!isNumberOfPassengersFocused && searchFlight.controls['numberOfPassengers'].touched && searchFlight.controls['numberOfPassengers'].value > 5" [errorMessage]="config.numberOfPassengersGreaterThanFiveError"></inline-error>
+            <inline-error *ngIf="!isNumberOfPassengersFocused && searchFlight.controls['numberOfPassengers'].touched && searchFlight.controls['numberOfPassengers'].value < 1" [errorMessage]="config.numberOfPassengersMinimumError"></inline-error>
           </div>
         </div>
 
@@ -107,14 +110,9 @@
         </div>
 
         <div class="input">
-          <button [disabled]="!searchFlight.valid">Search Flights</button>
+          <button [disabled]="!searchFlight.valid" class="button-primary">Search Flights</button>
         </div>
-
         <!--<p>One Way form <fa-icon [icon]="faFighterJet"></fa-icon></p>-->
-      </li>
-
-      <li data-content="new" [ngClass]="{'cd-selected': !isOneWaySearch}" *ngIf="!isOneWaySearch">
-        <p>Round Trip form <fa-icon [icon]="faFighterJet" size="6x"></fa-icon></p>
       </li>
     </ul>
   </form>
