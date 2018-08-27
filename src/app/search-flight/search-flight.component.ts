@@ -1,9 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { faFighterJet } from '@fortawesome/free-solid-svg-icons';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { CONFIG } from './search-flight.constant';
 import * as moment from 'moment';
 
+import { CityAirportsDomainModel } from '../domain-models/city-airports.domainmodel';
+import { CONFIG } from './search-flight.constant';
+import { DataServices } from '../services/data-services/data-services';
 import { DateService } from '../services/date-service/date.service';
 
 export const SEARCH_FLIGHT_SELECTOR = 'search-flight';
@@ -13,7 +15,9 @@ export const SEARCH_FLIGHT_SELECTOR = 'search-flight';
   templateUrl: './search-flight.component.html',
   styleUrls: [
     './search-flight.component.css'
-  ]})
+  ],
+  providers: [CityAirportsDomainModel]
+})
 
 export class SearchFlightComponent implements OnInit {
   @Input('defaultSelected') public defaultSelected;
@@ -31,6 +35,7 @@ export class SearchFlightComponent implements OnInit {
   public isReturnDateInPresent: boolean = false;
   public isReturnDateValid: boolean = true;
   public isReturnDateBeforeDepartureDate: boolean = false;
+  public cADM: CityAirportsDomainModel = new CityAirportsDomainModel();
   public searchFlight: FormGroup = new FormGroup({
     departureCity: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(50), Validators.pattern(this.citySearchNamePattern)]),
     arrivalCity: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(50), Validators.pattern(this.citySearchNamePattern)]),
@@ -40,7 +45,10 @@ export class SearchFlightComponent implements OnInit {
     travelClass: new FormControl('economy', Validators.required)
   });
 
-  constructor(private _dateService: DateService) {}
+  constructor(
+    private _dateService: DateService,
+    private _dataServices: DataServices
+    ) {}
 
   // tslint:disable-next-line
   ngOnInit() {
@@ -51,6 +59,12 @@ export class SearchFlightComponent implements OnInit {
     if (!!this.isOneWaySearch) {
       this.searchFlight.removeControl('returnDate');
     }
+
+    this._dataServices.getCityAirportsList();
+
+    this.cADM.airports.subscribe((evt: any) => {
+      alert('changed');
+    })
   }
 
   public searchMode(mode: string) {
