@@ -103,6 +103,7 @@
     "moment": "^2.22.2",
     "reflect-metadata": "^0.1.12",
     "rxjs": "^6.2.1",
+    "rxjs-observable-store": "^1.0.0",
     "zone.js": "^0.8.26"
   },
   "devDependencies": {

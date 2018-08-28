@@ -35,7 +35,7 @@ export class SearchFlightComponent implements OnInit {
   public isReturnDateInPresent: boolean = false;
   public isReturnDateValid: boolean = true;
   public isReturnDateBeforeDepartureDate: boolean = false;
-  public cADM: CityAirportsDomainModel = new CityAirportsDomainModel();
+ 
   public searchFlight: FormGroup = new FormGroup({
     departureCity: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(50), Validators.pattern(this.citySearchNamePattern)]),
     arrivalCity: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(50), Validators.pattern(this.citySearchNamePattern)]),
@@ -47,7 +47,8 @@ export class SearchFlightComponent implements OnInit {
 
   constructor(
     private _dateService: DateService,
-    private _dataServices: DataServices
+    private _dataServices: DataServices,
+    public cityAirportsStore: CityAirportsDomainModel
     ) {}
 
   // tslint:disable-next-line
@@ -59,12 +60,7 @@ export class SearchFlightComponent implements OnInit {
     if (!!this.isOneWaySearch) {
       this.searchFlight.removeControl('returnDate');
     }
-
     this._dataServices.getCityAirportsList();
-
-    this.cADM.airports.subscribe((evt: any) => {
-      alert('changed');
-    })
   }
 
   public searchMode(mode: string) {

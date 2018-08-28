@@ -11,7 +11,7 @@
       <li class="cd-selected">
         <div class="input">
           <div class="label">
-            <label>From {{cADM.airports.length}}</label>
+            <label>From {{(cityAirportsStore.state$ | async).cityAirports.length }}</label>
           </div>
           <div class="value">
             <input id="from-city-input" formControlName="departureCity" type="text" placeholder="From" class="input-field" (focus)="isDepartureCityFocused = true" (blur)="isDepartureCityFocused = false"/>.
