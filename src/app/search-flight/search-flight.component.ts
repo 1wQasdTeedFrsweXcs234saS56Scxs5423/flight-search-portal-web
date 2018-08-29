@@ -9,6 +9,8 @@ import { DataServices } from '../services/data-services/data-services';
 import { StaticDataServices } from '../services/data-services/static-services';
 import { DateService } from '../services/date-service/date.service';
 
+import * as models from '../models/models';
+
 export const SEARCH_FLIGHT_SELECTOR = 'search-flight';
 
 @Component({
@@ -35,6 +37,9 @@ export class SearchFlightComponent implements OnInit {
   public isReturnDateInPresent: boolean = false;
   public isReturnDateValid: boolean = true;
   public isReturnDateBeforeDepartureDate: boolean = false;
+
+  public fromCityAirportsSearchList: models.CityAirportModel[] = [];
+  public toCityAirportsSearchList: models.CityAirportModel[] = [];
  
   public searchFlight: FormGroup = new FormGroup({
     departureCity: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(50), Validators.pattern(this.citySearchNamePattern)]),
@@ -110,12 +115,21 @@ export class SearchFlightComponent implements OnInit {
     }
   }
 
-  public searchCity(event: any, mode) {
+  public searchCity(event: any, mode: string) {
     if (mode === 'from') {
       if (!this.searchFlight.controls['departureCity'].hasError('pattern') && event.target.value.trim() !== '') {
         // search city airport from the domain model
-        this._staticDataServices.getAirportsSearchResult(event.target.value.trim());
+        this.fromCityAirportsSearchList = this._staticDataServices.getAirportsSearchResult(event.target.value.toLowerCase().trim(), this.searchFlight.controls['arrivalCity'].value) || [];
+      }
+    } else if (mode === 'to') {
+      if (!this.searchFlight.controls['arrivalCity'].hasError('pattern') && event.target.value.trim() !== '') {
+        // search city airport from the domain model
+        this.toCityAirportsSearchList = this._staticDataServices.getAirportsSearchResult(event.target.value.toLowerCase().trim(), this.searchFlight.controls['departureCity'].value) || [];
       }
     }
+  }
+
+  public trackByAirportCode(index, airport) {
+    return airport ? airport.airportCode : undefined;
   }
 }

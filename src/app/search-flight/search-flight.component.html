@@ -17,55 +17,13 @@
           
           <div class="smart-search-input">
             <input id="from-city-input" formControlName="departureCity" type="text" placeholder="From" class="input-field" (focus)="isDepartureCityFocused = true" (blur)="isDepartureCityFocused = false" (keyup)="searchCity($event, 'from')"/>
-          <div class="city-options" *ngIf="false">
-            <div class="option">
+          <div class="city-options" *ngIf="searchFlight.controls['departureCity'].value.trim() !== '' && fromCityAirportsSearchList.length > 0">
+            <div class="option" *ngFor="let airport of fromCityAirportsSearchList; trackBy: trackByAirportCode">
               <div class="airport-details">
-                <div class="airport-name">Lohegaon Airport</div>
-                <div class="airport-city">Pune</div>
+                <div class="airport-name">{{airport.airportName}}</div>
+                <div class="airport-city">{{airport.cityName}}</div>
               </div>
-              <div class="airport-code">PNQ</div>
-            </div>
-            <div class="option">
-              <div class="airport-details">
-                <div class="airport-name">Lohegaon Airport</div>
-                <div class="airport-city">Pune</div>
-              </div>
-              <div class="airport-code">PNQ</div>
-            </div>
-            <div class="option">
-              <div class="airport-details">
-                <div class="airport-name">Lohegaon Airport</div>
-                <div class="airport-city">Pune</div>
-              </div>
-              <div class="airport-code">PNQ</div>
-            </div>
-            <div class="option">
-              <div class="airport-details">
-                <div class="airport-name">Lohegaon Airport</div>
-                <div class="airport-city">Pune</div>
-              </div>
-              <div class="airport-code">PNQ</div>
-            </div>
-            <div class="option">
-              <div class="airport-details">
-                <div class="airport-name">Lohegaon Airport</div>
-                <div class="airport-city">Pune</div>
-              </div>
-              <div class="airport-code">PNQ</div>
-            </div>
-            <div class="option">
-              <div class="airport-details">
-                <div class="airport-name">Lohegaon Airport</div>
-                <div class="airport-city">Pune</div>
-              </div>
-              <div class="airport-code">PNQ</div>
-            </div>
-            <div class="option">
-              <div class="airport-details">
-                <div class="airport-name">Lohegaon Airport</div>
-                <div class="airport-city">Pune</div>
-              </div>
-              <div class="airport-code">PNQ</div>
+              <div class="airport-code">{{airport.airportCode}}</div>
             </div>
           </div>
           </div>
@@ -89,56 +47,14 @@
           </div>
           <div class="value">
             <div class="smart-search-input">
-              <input id="to-city-input" formControlName="arrivalCity" type="text" placeholder="To" class="input-field" (focus)="isArrivalCityFocused = true" (blur)="isArrivalCityFocused = false"/>
-              <div class="city-options" *ngIf="false">
-            <div class="option">
+              <input id="to-city-input" formControlName="arrivalCity" type="text" placeholder="To" class="input-field" (focus)="isArrivalCityFocused = true" (blur)="isArrivalCityFocused = false" (keyup)="searchCity($event, 'to')"/>
+          <div class="city-options" *ngIf="searchFlight.controls['arrivalCity'].value.trim() !== '' && toCityAirportsSearchList.length > 0">
+            <div class="option" *ngFor="let airport of toCityAirportsSearchList; trackBy: trackByAirportCode">
               <div class="airport-details">
-                <div class="airport-name">Lohegaon Airport</div>
-                <div class="airport-city">Pune</div>
+                <div class="airport-name">{{airport.airportName}}</div>
+                <div class="airport-city">{{airport.cityName}}</div>
               </div>
-              <div class="airport-code">PNQ</div>
-            </div>
-            <div class="option">
-              <div class="airport-details">
-                <div class="airport-name">Lohegaon Airport</div>
-                <div class="airport-city">Pune</div>
-              </div>
-              <div class="airport-code">PNQ</div>
-            </div>
-            <div class="option">
-              <div class="airport-details">
-                <div class="airport-name">Lohegaon Airport</div>
-                <div class="airport-city">Pune</div>
-              </div>
-              <div class="airport-code">PNQ</div>
-            </div>
-            <div class="option">
-              <div class="airport-details">
-                <div class="airport-name">Lohegaon Airport</div>
-                <div class="airport-city">Pune</div>
-              </div>
-              <div class="airport-code">PNQ</div>
-            </div>
-            <div class="option">
-              <div class="airport-details">
-                <div class="airport-name">Lohegaon Airport</div>
-                <div class="airport-city">Pune</div>
-              </div>
-              <div class="airport-code">PNQ</div>
-            </div>
-            <div class="option">
-              <div class="airport-details">
-                <div class="airport-name">Lohegaon Airport</div>
-                <div class="airport-city">Pune</div>
-              </div>
-              <div class="airport-code">PNQ</div>
-            </div>
-            <div class="option">
-              <div class="airport-details">
-                <div class="airport-name">Lohegaon Airport</div>
-                <div class="airport-city">Pune</div>
-              </div>
-              <div class="airport-code">PNQ</div>
+              <div class="airport-code">{{airport.airportCode}}</div>
             </div>
           </div>
             </div>

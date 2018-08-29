@@ -422,6 +422,7 @@ div.input .value .input-field-date {
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
   overflow-y: auto;
+  z-index: 1;
 }
 
 .city-options-no-result {
