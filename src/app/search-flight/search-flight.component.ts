@@ -40,6 +40,9 @@ export class SearchFlightComponent implements OnInit {
 
   public fromCityAirportsSearchList: models.CityAirportModel[] = [];
   public toCityAirportsSearchList: models.CityAirportModel[] = [];
+
+  public isSelectingFromCity: boolean = false;
+  public isSelectingToCity: boolean = false;
  
   public searchFlight: FormGroup = new FormGroup({
     departureCity: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(50), Validators.pattern(this.citySearchNamePattern)]),
@@ -118,14 +121,22 @@ export class SearchFlightComponent implements OnInit {
   public searchCity(event: any, mode: string) {
     if (mode === 'from') {
       if (!this.searchFlight.controls['departureCity'].hasError('pattern') && event.target.value.trim() !== '') {
-        // search city airport from the domain model
         this.fromCityAirportsSearchList = this._staticDataServices.getAirportsSearchResult(event.target.value.toLowerCase().trim(), this.searchFlight.controls['arrivalCity'].value) || [];
       }
     } else if (mode === 'to') {
       if (!this.searchFlight.controls['arrivalCity'].hasError('pattern') && event.target.value.trim() !== '') {
-        // search city airport from the domain model
         this.toCityAirportsSearchList = this._staticDataServices.getAirportsSearchResult(event.target.value.toLowerCase().trim(), this.searchFlight.controls['departureCity'].value) || [];
       }
+    }
+  }
+
+  public setAirport (airport: models.CityAirportModel, mode) {
+    if (mode === 'departure') {
+      this.searchFlight.controls['departureCity'].setValue(airport.airportCode);
+      this.isSelectingFromCity = false;
+    } else if (mode === 'arrival') {
+      this.searchFlight.controls['arrivalCity'].setValue(airport.airportCode);
+      this.isSelectingToCity = false;
     }
   }
 
