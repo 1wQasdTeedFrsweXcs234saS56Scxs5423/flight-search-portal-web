@@ -10,7 +10,16 @@ export class StaticDataServices {
 	constructor(private _cityAirporsDomainModel: CityAirportsDomainModel) {}
 
 	public getAirportsSearchResult(searchKey: string, filterAirport: string): models.CityAirportModel[] {
-		return _.filter(this._cityAirporsDomainModel.state.cityAirports, (airport) => {
+		let airports = this._cityAirporsDomainModel.state.cityAirports;
+
+		// filter the entered destination by the user
+		if (filterAirport !== '') {
+			airports = _.reject(airports, (airport) => {
+				return airport.airportCode.toLowerCase() === filterAirport.toLowerCase();
+			});
+		}
+
+		return _.filter(airports, (airport) => {
 			return airport.airportCode.toLowerCase().includes(searchKey) || 
 				   airport.airportName.toLowerCase().includes(searchKey) ||
 				   airport.cityName.toLowerCase().includes(searchKey);
