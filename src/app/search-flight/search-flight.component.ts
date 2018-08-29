@@ -6,6 +6,7 @@ import * as moment from 'moment';
 import { CityAirportsDomainModel } from '../domain-models/city-airports.domainmodel';
 import { CONFIG } from './search-flight.constant';
 import { DataServices } from '../services/data-services/data-services';
+import { StaticDataServices } from '../services/data-services/static-services';
 import { DateService } from '../services/date-service/date.service';
 
 export const SEARCH_FLIGHT_SELECTOR = 'search-flight';
@@ -15,8 +16,7 @@ export const SEARCH_FLIGHT_SELECTOR = 'search-flight';
   templateUrl: './search-flight.component.html',
   styleUrls: [
     './search-flight.component.css'
-  ],
-  providers: [CityAirportsDomainModel]
+  ]
 })
 
 export class SearchFlightComponent implements OnInit {
@@ -48,6 +48,7 @@ export class SearchFlightComponent implements OnInit {
   constructor(
     private _dateService: DateService,
     private _dataServices: DataServices,
+    private _staticDataServices: StaticDataServices,
     public cityAirportsStore: CityAirportsDomainModel
     ) {}
 
@@ -106,6 +107,15 @@ export class SearchFlightComponent implements OnInit {
       this.isReturnDateBeforeDepartureDate = moment(this.searchFlight.controls['returnDate'].value).diff(this.searchFlight.controls['departureDate'].value) < 0;
     } else {
       this.isReturnDateBeforeDepartureDate = false;
+    }
+  }
+
+  public searchCity(event: any, mode) {
+    if (mode === 'from') {
+      if (!this.searchFlight.controls['departureCity'].hasError('pattern') && event.target.value.trim() !== '') {
+        // search city airport from the domain model
+        this._staticDataServices.getAirportsSearchResult(event.target.value.trim());
+      }
     }
   }
 }

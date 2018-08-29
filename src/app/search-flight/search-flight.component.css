@@ -383,7 +383,7 @@ div.input .value {
 }
 
 div.input .value .input-field {
-  width: 60%;
+  width: 100%;
 }
 
 div.input .value .input-field-passengers {
@@ -405,6 +405,76 @@ div.input .value .input-field-date {
 
 .button-primary[disabled] {
   background: #758e90;
+}
+
+.smart-search-input {
+  width: 60%;
+  position: relative;
+}
+
+.city-options {
+  position: absolute;
+  width: 100%;
+  height: 209px;
+  background: #fff;
+  border: 1px solid #777575;
+  border-top: none;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  overflow-y: auto;
+}
+
+.city-options-no-result {
+  position: absolute;
+  width: 100%;
+  max-height: 209px;
+  background: #fff;
+  border: 1px solid #777575;
+  border-top: none;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  overflow-y: auto;
+}
+
+.option {
+  display: flex;
+  min-height: 35px;
+  padding: 5px;
+  color: #777575;
+  border-bottom: 1px solid #777575;
+}
+
+.option:hover {
+  background: #00838F;
+  cursor: pointer;
+  color: #fff;
+}
+
+.option:active {
+  background: #00838F;
+  cursor: pointer;
+}
+
+.option .airport-details {
+  display: inline-block;
+  width: 80%;
+}
+
+.option .airport-code {
+  width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.option .airport-details .airport-city {
+  margin-top: 5px;
+}
+
+.option .airport-details .airport-name {
+  font-size: 20px;
+  font-weight: 500;
 }
 
 @media ( min-width: 960px ) {

@@ -11,10 +11,65 @@
       <li class="cd-selected">
         <div class="input">
           <div class="label">
-            <label>From {{(cityAirportsStore.state$ | async).cityAirports.length }}</label>
+            <label>From</label>
           </div>
           <div class="value">
-            <input id="from-city-input" formControlName="departureCity" type="text" placeholder="From" class="input-field" (focus)="isDepartureCityFocused = true" (blur)="isDepartureCityFocused = false"/>.
+          
+          <div class="smart-search-input">
+            <input id="from-city-input" formControlName="departureCity" type="text" placeholder="From" class="input-field" (focus)="isDepartureCityFocused = true" (blur)="isDepartureCityFocused = false" (keyup)="searchCity($event, 'from')"/>
+          <div class="city-options" *ngIf="false">
+            <div class="option">
+              <div class="airport-details">
+                <div class="airport-name">Lohegaon Airport</div>
+                <div class="airport-city">Pune</div>
+              </div>
+              <div class="airport-code">PNQ</div>
+            </div>
+            <div class="option">
+              <div class="airport-details">
+                <div class="airport-name">Lohegaon Airport</div>
+                <div class="airport-city">Pune</div>
+              </div>
+              <div class="airport-code">PNQ</div>
+            </div>
+            <div class="option">
+              <div class="airport-details">
+                <div class="airport-name">Lohegaon Airport</div>
+                <div class="airport-city">Pune</div>
+              </div>
+              <div class="airport-code">PNQ</div>
+            </div>
+            <div class="option">
+              <div class="airport-details">
+                <div class="airport-name">Lohegaon Airport</div>
+                <div class="airport-city">Pune</div>
+              </div>
+              <div class="airport-code">PNQ</div>
+            </div>
+            <div class="option">
+              <div class="airport-details">
+                <div class="airport-name">Lohegaon Airport</div>
+                <div class="airport-city">Pune</div>
+              </div>
+              <div class="airport-code">PNQ</div>
+            </div>
+            <div class="option">
+              <div class="airport-details">
+                <div class="airport-name">Lohegaon Airport</div>
+                <div class="airport-city">Pune</div>
+              </div>
+              <div class="airport-code">PNQ</div>
+            </div>
+            <div class="option">
+              <div class="airport-details">
+                <div class="airport-name">Lohegaon Airport</div>
+                <div class="airport-city">Pune</div>
+              </div>
+              <div class="airport-code">PNQ</div>
+            </div>
+          </div>
+          </div>
+
             <inline-error *ngIf="isDepartureCityFocused && searchFlight.controls['departureCity'].hasError('pattern')" 
                           [errorMessage]="config.invalidCharactersError"></inline-error>
             <inline-error *ngIf="!isDepartureCityFocused && searchFlight.controls['departureCity'].touched && searchFlight.controls['departureCity'].hasError('required')" 
@@ -33,8 +88,60 @@
             <label>To</label>
           </div>
           <div class="value">
-            <input id="to-city-input" formControlName="arrivalCity" type="text" placeholder="To" class="input-field" (focus)="isArrivalCityFocused = true" (blur)="isArrivalCityFocused = false"/>
-
+            <div class="smart-search-input">
+              <input id="to-city-input" formControlName="arrivalCity" type="text" placeholder="To" class="input-field" (focus)="isArrivalCityFocused = true" (blur)="isArrivalCityFocused = false"/>
+              <div class="city-options" *ngIf="false">
+            <div class="option">
+              <div class="airport-details">
+                <div class="airport-name">Lohegaon Airport</div>
+                <div class="airport-city">Pune</div>
+              </div>
+              <div class="airport-code">PNQ</div>
+            </div>
+            <div class="option">
+              <div class="airport-details">
+                <div class="airport-name">Lohegaon Airport</div>
+                <div class="airport-city">Pune</div>
+              </div>
+              <div class="airport-code">PNQ</div>
+            </div>
+            <div class="option">
+              <div class="airport-details">
+                <div class="airport-name">Lohegaon Airport</div>
+                <div class="airport-city">Pune</div>
+              </div>
+              <div class="airport-code">PNQ</div>
+            </div>
+            <div class="option">
+              <div class="airport-details">
+                <div class="airport-name">Lohegaon Airport</div>
+                <div class="airport-city">Pune</div>
+              </div>
+              <div class="airport-code">PNQ</div>
+            </div>
+            <div class="option">
+              <div class="airport-details">
+                <div class="airport-name">Lohegaon Airport</div>
+                <div class="airport-city">Pune</div>
+              </div>
+              <div class="airport-code">PNQ</div>
+            </div>
+            <div class="option">
+              <div class="airport-details">
+                <div class="airport-name">Lohegaon Airport</div>
+                <div class="airport-city">Pune</div>
+              </div>
+              <div class="airport-code">PNQ</div>
+            </div>
+            <div class="option">
+              <div class="airport-details">
+                <div class="airport-name">Lohegaon Airport</div>
+                <div class="airport-city">Pune</div>
+              </div>
+              <div class="airport-code">PNQ</div>
+            </div>
+          </div>
+            </div>
             <inline-error *ngIf="isArrivalCityFocused && searchFlight.controls['arrivalCity'].hasError('pattern')" 
                           [errorMessage]="config.invalidCharactersError"></inline-error>
             <inline-error *ngIf="!isArrivalCityFocused && searchFlight.controls['arrivalCity'].touched && searchFlight.controls['arrivalCity'].hasError('required')" 
