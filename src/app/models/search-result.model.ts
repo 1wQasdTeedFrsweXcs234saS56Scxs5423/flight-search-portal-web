@@ -6,7 +6,9 @@ export class SearchResultModel {
   public duration: string;
   public isMealIncluded: boolean;
   public departureCity: string;
+  public departureCityName: string;
   public arrivalCity: string;
+  public arrivalCityName: string;
   public fare: number;
   public fareCurrency: string;
   public seatsLeft: number;
@@ -19,7 +21,9 @@ export class SearchResultModel {
     this.duration = '';
     this.isMealIncluded = false;
     this.departureCity = '';
+    this.departureCityName = '';
     this.arrivalCity = '';
+    this.arrivalCityName = '';
     this.fare = 0;
     this.fareCurrency = '';
     this.seatsLeft = 0;

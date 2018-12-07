@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { faFighterJet } from '@fortawesome/free-solid-svg-icons';
+import { faUtensils } from '@fortawesome/free-solid-svg-icons';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import * as moment from 'moment';
 
@@ -25,7 +25,7 @@ export class SearchFlightComponent implements OnInit {
   @Input('defaultSelected') public defaultSelected;
   public isOneWaySearch: boolean;
   public config: any = CONFIG;
-  public faFighterJet: any = faFighterJet;
+  public faUtensils: any = faUtensils;
   public isDepartureCityFocused: boolean = false;
   public isArrivalCityFocused: boolean = false;
   public isDepartureDateFocused: boolean = false;
@@ -72,7 +72,7 @@ export class SearchFlightComponent implements OnInit {
     this._dataServices.getCityAirportsList();
   }
 
-  public searchMode(mode: string) {
+  public searchMode(mode: string): void {
     this.isOneWaySearch = mode !== '' && mode === 'oneWay';
     if (!!this.isOneWaySearch) {
       this.searchFlight.removeControl('returnDate');
@@ -82,19 +82,19 @@ export class SearchFlightComponent implements OnInit {
   }
 
 
-  public setDepartureDateFlags() {
+  public setDepartureDateFlags(): void {
     this.isDepartureDateFocused = true;
     this.isDepartureDateInPresent = false;
     this.isDepartureDateValid = true;
   }
 
-  public setReturnDateFlags() {
+  public setReturnDateFlags(): void {
     this.isArrivalDateFocused = true;
     this.isReturnDateInPresent = false;
     this.isReturnDateValid = true;
   }
 
-  public checkIfDateIsPresentDate(mode: string) {
+  public checkIfDateIsPresentDate(mode: string): void {
     if (mode === 'departure') {
       this.isDepartureDateInPresent = moment(this.searchFlight.controls['departureDate'].value).diff(moment(this.currentDate, 'DD/MM/YYYY')) >= 0;
     } else if (mode === 'arrival') {
@@ -102,7 +102,7 @@ export class SearchFlightComponent implements OnInit {
     }
   }
 
-  public checkIfDateIsValid(mode: string) {
+  public checkIfDateIsValid(mode: string): void {
     if (mode === 'departure') {
       this.isDepartureDateValid = moment(this.searchFlight.controls['departureDate'].value).isValid();
     } else if (mode === 'arrival') {
@@ -110,15 +110,17 @@ export class SearchFlightComponent implements OnInit {
     }
   }
 
-  public checkIfReturnDateBeforeDepartureDate() {
-    if (moment(this.searchFlight.controls['returnDate'].value).isValid() && moment(this.searchFlight.controls['departureDate'].value).isValid()) {
-      this.isReturnDateBeforeDepartureDate = moment(this.searchFlight.controls['returnDate'].value).diff(this.searchFlight.controls['departureDate'].value) < 0;
-    } else {
-      this.isReturnDateBeforeDepartureDate = false;
+  public checkIfReturnDateBeforeDepartureDate(): void {
+    if (!this.isOneWaySearch) {
+      if (moment(this.searchFlight.controls['returnDate'].value).isValid() && moment(this.searchFlight.controls['departureDate'].value).isValid()) {
+        this.isReturnDateBeforeDepartureDate = moment(this.searchFlight.controls['returnDate'].value).diff(this.searchFlight.controls['departureDate'].value) < 0;
+      } else {
+        this.isReturnDateBeforeDepartureDate = false;
+      }
     }
   }
 
-  public searchCity(event: any, mode: string) {
+  public searchCity(event: any, mode: string): void {
     if (mode === 'from') {
       if (!this.searchFlight.controls['departureCity'].hasError('pattern') && event.target.value.trim() !== '') {
         this.fromCityAirportsSearchList = this._staticDataServices.getAirportsSearchResult(event.target.value.toLowerCase().trim(), this.searchFlight.controls['arrivalCity'].value) || [];
@@ -130,7 +132,7 @@ export class SearchFlightComponent implements OnInit {
     }
   }
 
-  public setAirport (airport: models.CityAirportModel, mode) {
+  public setAirport (airport: models.CityAirportModel, mode): void {
     if (mode === 'departure') {
       this.searchFlight.controls['departureCity'].setValue(airport.airportCode);
       this.isSelectingFromCity = false;
@@ -140,7 +142,11 @@ export class SearchFlightComponent implements OnInit {
     }
   }
 
-  public trackByAirportCode(index, airport) {
+  public trackByAirportCode(index, airport): any {
     return airport ? airport.airportCode : undefined;
+  }
+
+  public searchFlights(): void {
+    this._dataServices.getFlightSearchResults(this.isOneWaySearch, this.searchFlight.controls['departureCity'].value, this.searchFlight.controls['arrivalCity'].value, this.searchFlight.controls['departureDate'].value, !this.isOneWaySearch ? this.searchFlight.controls['returnDate'].value : undefined)
   }
 }

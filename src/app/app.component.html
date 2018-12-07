@@ -1,4 +1,10 @@
 <main>
-  <search-flight [defaultSelected]="defaultSearchFlightMode"></search-flight>
-  <router-outlet></router-outlet>
+  <div class="flight-search-container">
+    <div class="search-component">
+      <search-flight [defaultSelected]="defaultSearchFlightMode"></search-flight>
+    </div>
+    <div class="search-results-component">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
 </main>

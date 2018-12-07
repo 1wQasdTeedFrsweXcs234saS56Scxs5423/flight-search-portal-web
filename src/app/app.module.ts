@@ -17,9 +17,10 @@ import { AppComponent } from './app.component';
 import { SearchFlightComponent } from './search-flight/search-flight.component';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
-import { HomeComponent } from './home';
 import { AboutComponent } from './about';
 import { NoContentComponent } from './no-content';
+import { FlightSearchResultsComponent } from './flight-search-results';
+import { ResultFlightComponent } from './flight-search-results/result-flight';
 import { XLargeDirective } from './home/x-large';
 import { DevModuleModule } from './+dev-module';
 
@@ -50,8 +51,9 @@ interface StoreType {
     AppComponent,
     SearchFlightComponent,
     AboutComponent,
-    HomeComponent,
     NoContentComponent,
+    FlightSearchResultsComponent,
+    ResultFlightComponent,
     XLargeDirective
   ],
   /**

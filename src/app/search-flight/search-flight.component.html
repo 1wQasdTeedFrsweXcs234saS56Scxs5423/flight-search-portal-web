@@ -132,9 +132,9 @@
         </div>
 
         <div class="input">
-          <button [disabled]="!searchFlight.valid" class="button-primary">Search Flights</button>
+          <button [disabled]="!searchFlight.valid" class="button-primary" (click)="searchFlights()">Search Flights</button>
         </div>
-        <!--<p>One Way form <fa-icon [icon]="faFighterJet"></fa-icon></p>-->
+        <!--<p>One Way form <fa-icon [icon]="faUtensils"></fa-icon></p>-->
       </li>
     </ul>
   </form>
