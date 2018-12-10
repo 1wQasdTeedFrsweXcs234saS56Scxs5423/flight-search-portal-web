@@ -31,4 +31,11 @@ export class SearchResultsDomainModel extends Store<SearchResultsState> {
       isSearchOneWay: isSearchOneWay
     });
   }
+
+  public setMaxFareForFlight(maxFareForFlight: number): void {
+    this.setState({
+      ...this.state,
+      maxFareForFlight: maxFareForFlight
+    });
+  }
 }

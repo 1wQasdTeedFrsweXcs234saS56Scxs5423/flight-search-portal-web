@@ -1,9 +1,45 @@
 <div class="search-result-container">
+  <form [formGroup]="searchFlight">
   <div class="search-results-header">
     <h1>Search Results</h1>
   </div>
   <div class="search-results-summary">
-    Found 5 onward flights and 6 return flights.
+    <span *ngIf="_searchResultsStore.state.isSearchOneWay" [ngPlural]="_searchResultsStore.state.onwardsFlights?.length">
+      <ng-template ngPluralCase="=0">
+        Sorry, no onward flights found for this date and route.
+      </ng-template>
+      <ng-template ngPluralCase="=1">
+        Found {{(_searchResultsStore.state.onwardsFlights | searchResultFilter:_searchResultsStore.state.maxFareForFlight).length}} onward flight.
+      </ng-template>
+      <ng-template ngPluralCase="other">
+        Found {{(_searchResultsStore.state.onwardsFlights | searchResultFilter:_searchResultsStore.state.maxFareForFlight).length}} onward flights.
+      </ng-template>
+    </span>
+    <span *ngIf="!_searchResultsStore.state.isSearchOneWay">
+      <span [ngPlural]="_searchResultsStore.state.onwardsFlights?.length">
+        <ng-template ngPluralCase="=0">
+          Sorry, no onward flights found for this date and route
+        </ng-template>
+        <ng-template ngPluralCase="=1">
+          Found {{(_searchResultsStore.state.onwardsFlights | searchResultFilter:_searchResultsStore.state.maxFareForFlight).length}} onward flight
+        </ng-template>
+        <ng-template ngPluralCase="other">
+          Found {{(_searchResultsStore.state.onwardsFlights | searchResultFilter:_searchResultsStore.state.maxFareForFlight).length}} onward flights
+        </ng-template>
+      </span>
+      and
+      <span [ngPlural]="_searchResultsStore.state.returnFlights?.length">
+        <ng-template ngPluralCase="=0">
+          Sorry, no return flights found for this date and route.
+        </ng-template>
+        <ng-template ngPluralCase="=1">
+          found {{(_searchResultsStore.state.returnFlights | searchResultFilter:_searchResultsStore.state.maxFareForFlight).length}} return flight.
+        </ng-template>
+        <ng-template ngPluralCase="other">
+          found {{(_searchResultsStore.state.returnFlights | searchResultFilter:_searchResultsStore.state.maxFareForFlight).length}} return flights.
+        </ng-template>
+      </span>
+    </span>
   </div>
 
   <div class="search-results-display">
@@ -11,17 +47,23 @@
       <div class="flight-heading">
         <h2>Onward flights</h2>
       </div>
-      <result-flight></result-flight>
+        <result-flight [flightType]="'onwards'"  *ngFor="let flight of (_searchResultsStore.state.onwardsFlights | searchResultFilter:_searchResultsStore.state.maxFareForFlight)" [flightDetails]="flight"></result-flight>
     </div>
-    <div class="return-search-results-display">
+    <div class="return-search-results-display" *ngIf="!_searchResultsStore.state.isSearchOneWay">
       <div class="flight-heading">
         <h2>Return flights</h2>
       </div>
-      <result-flight></result-flight>
+        <result-flight [flightType]="'return'" *ngFor="let flight of (_searchResultsStore.state.returnFlights | searchResultFilter:_searchResultsStore.state.maxFareForFlight)" [flightDetails]="flight"></result-flight>
     </div>
   </div>
 
   <div class="flight-selected-summary">
-    <h1>Total Cost: </h1>
+    <div class="flight-cost">
+      <h1>Total Cost: Rs. 10000</h1>
+    </div>
+    <div class="flight-book">
+      <button class="flight-book-button">Book now</button>
+    </div>
   </div>
+  </form>
 </div>

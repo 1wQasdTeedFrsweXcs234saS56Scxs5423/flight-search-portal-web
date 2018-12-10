@@ -23,7 +23,7 @@
 
 .search-results-display {
   display: flex;
-  margin: 10px;
+  margin: 10px 10px 50px 10px;
 }
 
 .onward-search-results-display, .return-search-results-display {
@@ -39,4 +39,46 @@
   padding-bottom: 15px;
   border-bottom: 1px solid #00838f;
   margin-right: 15px;
+}
+
+.flight-selected-summary {
+  position: absolute; 
+  bottom: 0;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  background: #00838f;
+  width: 100%;
+}
+
+.flight-selected-summary h1 {
+  color: #fff;
+  margin: 10px;
+  font-weight: bold;
+}
+
+.flight-book-button {
+  border: 0;
+  border-radius: inherit;
+  background: #e81919;
+  height: 30px;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  border-color: #e81919;
+  box-shadow: none;
+  margin-right: 15px;
+}
+
+.flight-book-button:hover {
+  background: #960505;
+}
+
+.flight-cost {
+  width: 80%;
+}
+
+.flight-book {
+  width: 20%;
+  text-align: right;
 }

@@ -20,6 +20,8 @@ export class FlightSearchResultsModelmapper {
       searchResult.departureDate = flight.departureDate;
       searchResult.departureTime = flight.departureTime;
       searchResult.duration = flight.duration;
+      searchResult.arrivalDate = flight.arrivalDate;
+      searchResult.arrivalTime = flight.arrivalTime;
       searchResult.isMealIncluded = flight.isMealIncluded;
       searchResult.arrivalCity = flight.arrivalCity;
       searchResult.arrivalCityName = flight.arrivalCityName;
@@ -43,6 +45,8 @@ export class FlightSearchResultsModelmapper {
         searchResult.departureDate = flight.departureDate;
         searchResult.departureTime = flight.departureTime;
         searchResult.duration = flight.duration;
+        searchResult.arrivalDate = flight.arrivalDate;
+        searchResult.arrivalTime = flight.arrivalTime;
         searchResult.isMealIncluded = flight.isMealIncluded;
         searchResult.arrivalCity = flight.arrivalCity;
         searchResult.arrivalCityName = flight.arrivalCityName;

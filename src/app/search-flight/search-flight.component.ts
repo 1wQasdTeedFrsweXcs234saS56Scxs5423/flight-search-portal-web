@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { faUtensils } from '@fortawesome/free-solid-svg-icons';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import * as moment from 'moment';
 
@@ -25,7 +24,6 @@ export class SearchFlightComponent implements OnInit {
   @Input('defaultSelected') public defaultSelected;
   public isOneWaySearch: boolean;
   public config: any = CONFIG;
-  public faUtensils: any = faUtensils;
   public isDepartureCityFocused: boolean = false;
   public isArrivalCityFocused: boolean = false;
   public isDepartureDateFocused: boolean = false;
@@ -45,11 +43,11 @@ export class SearchFlightComponent implements OnInit {
   public isSelectingToCity: boolean = false;
  
   public searchFlight: FormGroup = new FormGroup({
-    departureCity: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(50), Validators.pattern(this.citySearchNamePattern)]),
-    arrivalCity: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(50), Validators.pattern(this.citySearchNamePattern)]),
-    departureDate: new FormControl('', Validators.required),
+    departureCity: new FormControl('PNQ', [Validators.required, Validators.minLength(3), Validators.maxLength(50), Validators.pattern(this.citySearchNamePattern)]),
+    arrivalCity: new FormControl('BLR', [Validators.required, Validators.minLength(3), Validators.maxLength(50), Validators.pattern(this.citySearchNamePattern)]),
+    departureDate: new FormControl('12/10/2018', Validators.required),
     returnDate: new FormControl('', Validators.required),
-    numberOfPassengers: new FormControl('', [Validators.required, Validators.minLength(1), Validators.maxLength(1)]),
+    numberOfPassengers: new FormControl('1', [Validators.required, Validators.minLength(1), Validators.maxLength(1)]),
     travelClass: new FormControl('economy', Validators.required)
   });
 

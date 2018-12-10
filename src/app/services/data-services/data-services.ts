@@ -37,12 +37,15 @@ export class DataServices {
     this._http.get(apiToCall).subscribe(
       (data: any) => {
         let searchResults: any = this._flightSearchResultsModelMapper.buildFlightSearchResults(isOneWay, data);
+				this._searchResultsDomainModel.setOneWaySearch(isOneWay);
+				this._searchResultsDomainModel.setOnwardFlightSearchResults(searchResults.onwardFlightSearchResults);
 
-        if (isOneWay) {
-
-        } else {
-
+        if (!isOneWay) {
+					this._searchResultsDomainModel.setReturnFlightSearchResults(searchResults.returnFlightSearchResults);
         }
+
+				let event = new CustomEvent('flightResultsLoaded');
+				document.dispatchEvent(event);
       },
       (error: any) => {
         // Show full page error if you are unable to load the search results

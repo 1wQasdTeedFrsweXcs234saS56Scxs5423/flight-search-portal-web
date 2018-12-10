@@ -20,4 +20,5 @@ a.active {
 .search-results-component {
   width: 60%;
   border: 1px solid black;
+  position: relative;
 }

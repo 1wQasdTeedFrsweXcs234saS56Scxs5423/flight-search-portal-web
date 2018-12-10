@@ -1,0 +1,21 @@
+<div class="search-results-filter-container" *ngIf="showSearchResultFilter">
+    <div class="range-slider">
+    <input type="range" min="{{lowestAndHighestFare.lowestFare}}" max="{{lowestAndHighestFare.highestFare}}" value="{{lowestAndHighestFare.highestFare}}" step="1"
+    class="range-slider__range" (input)="showVal($event)" (change)="showVal($event)">
+    </div>
+
+    <div style="text-align: right">
+    <div id="minValBox" class="valBox min">
+    Min: INR {{lowestAndHighestFare.lowestFare}}
+    </div>
+
+    <div id="maxValBox" class="valBox max">
+    Max: INR {{lowestAndHighestFare.highestFare}}
+    </div>
+    
+    <div id="valBox" class="selectedValBox">
+        Max value of per flight: {{filterRangeValue}}
+    </div>
+
+    </div>
+</div>

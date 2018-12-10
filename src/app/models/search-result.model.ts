@@ -4,6 +4,8 @@ export class SearchResultModel {
   public departureDate: string;
   public departureTime: string;
   public duration: string;
+  public arrivalDate: string;
+  public arrivalTime: string;
   public isMealIncluded: boolean;
   public departureCity: string;
   public departureCityName: string;
@@ -19,6 +21,8 @@ export class SearchResultModel {
     this.departureDate = '';
     this.departureTime = '';
     this.duration = '';
+    this.arrivalDate = '';
+    this.arrivalTime = '';
     this.isMealIncluded = false;
     this.departureCity = '';
     this.departureCityName = '';

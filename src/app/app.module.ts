@@ -21,6 +21,9 @@ import { AboutComponent } from './about';
 import { NoContentComponent } from './no-content';
 import { FlightSearchResultsComponent } from './flight-search-results';
 import { ResultFlightComponent } from './flight-search-results/result-flight';
+import { SearchResultFilterComponent } from './search-result-filter/search-result-filter.component'
+import { ResolveCityName } from './pipes/city-name.pipe';
+import { SearchResultFilter } from './pipes/search-result-filter.pipe';
 import { XLargeDirective } from './home/x-large';
 import { DevModuleModule } from './+dev-module';
 
@@ -54,6 +57,9 @@ interface StoreType {
     NoContentComponent,
     FlightSearchResultsComponent,
     ResultFlightComponent,
+    SearchResultFilterComponent,
+    ResolveCityName,
+    SearchResultFilter,
     XLargeDirective
   ],
   /**

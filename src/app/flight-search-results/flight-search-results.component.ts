@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { faUtensils } from '@fortawesome/free-solid-svg-icons';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { SearchResultsDomainModel } from '../domain-models/search-results.domainmodel';
+import { SearchResultFilter } from '../pipes/search-result-filter.pipe';
 
 export const FLIGHT_SEARCH_RESULT_SELECTOR = 'flight-search-results';
 
@@ -11,6 +13,13 @@ export const FLIGHT_SEARCH_RESULT_SELECTOR = 'flight-search-results';
   ]
 })
 export class FlightSearchResultsComponent {
-  public faUtensils: any = faUtensils;
 
+constructor(
+  public _searchResultsStore: SearchResultsDomainModel
+) {}
+
+public searchFlight: FormGroup = new FormGroup({
+    onwards: new FormControl('', [Validators.required]),
+    return: new FormControl('', [Validators.required])
+  });
 }

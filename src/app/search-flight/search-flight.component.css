@@ -304,7 +304,7 @@ header h1 {
     min-height: 0;
   }
   .cd-tabs__content li {
-    padding: 3em;
+    padding: 30px;
   }
   .cd-tabs__content li p {
     font-size: 1.6rem;
