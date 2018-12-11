@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, HostListener } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import * as moment from 'moment';
 
@@ -74,8 +74,14 @@ export class SearchFlightComponent implements OnInit {
     this.isOneWaySearch = mode !== '' && mode === 'oneWay';
     if (!!this.isOneWaySearch) {
       this.searchFlight.removeControl('returnDate');
+      
+      let event = new CustomEvent('searchModeSelection', {detail: "oneWay"});
+			document.dispatchEvent(event);
     } else {
       this.searchFlight.addControl('returnDate', new FormControl('', Validators.required));
+
+      let event = new CustomEvent('searchModeSelection', {detail: "return"});
+			document.dispatchEvent(event);
     }
   }
 
@@ -146,5 +152,18 @@ export class SearchFlightComponent implements OnInit {
 
   public searchFlights(): void {
     this._dataServices.getFlightSearchResults(this.isOneWaySearch, this.searchFlight.controls['departureCity'].value, this.searchFlight.controls['arrivalCity'].value, this.searchFlight.controls['departureDate'].value, !this.isOneWaySearch ? this.searchFlight.controls['returnDate'].value : undefined)
+  }
+
+  @HostListener('document:resetSearchForm')
+  public resetForm() {
+    this.searchFlight.controls['departureCity'].setValue('');
+    this.searchFlight.controls['arrivalCity'].setValue('');
+    this.searchFlight.controls['departureDate'].setValue('');
+    this.searchFlight.removeControl('departureDate');
+    this.searchFlight.addControl('departureDate', new FormControl('', Validators.required));
+    !!this.searchFlight.controls.returnDate && this.searchFlight.controls['returnDate'].setValue('');
+    !!this.searchFlight.controls.returnDate && this.searchFlight.removeControl('returnDate');
+    !!this.searchFlight.controls.returnDate && this.searchFlight.addControl('returnDate', new FormControl('', Validators.required));
+    this.searchFlight.controls['numberOfPassengers'].setValue('');  
   }
 }

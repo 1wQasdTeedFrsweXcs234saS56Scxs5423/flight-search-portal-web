@@ -2,6 +2,8 @@ import { Component, Input } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { faUtensils } from '@fortawesome/free-solid-svg-icons';
 import { ResolveCityName } from '../../pipes/city-name.pipe';
+import * as models from '../../models/models';
+import { SelectedFlightsDomainModel } from '../../domain-models/selected-flights.domainmodel';
 
 export const RESULT_FLIGHT_SELECTOR = 'result-flight';
 
@@ -14,10 +16,22 @@ export const RESULT_FLIGHT_SELECTOR = 'result-flight';
 })
 export class ResultFlightComponent {
   public faUtensils: any = faUtensils;
+  public selectedFlightValue: string = '';
 
-  @Input()
-  public flightDetails: any;
+  constructor(public _selectedFlightsStore: SelectedFlightsDomainModel) {}
 
   @Input()
   public flightType: string;
+
+  @Input()
+  public searchFlight: FormGroup;
+
+  @Input()
+  public flightResults: models.SearchResultModel[];
+
+  public selectFlight(flightDetails: any, flightType: string) {
+    this.selectedFlightValue = flightDetails.flightNumber;
+    this.searchFlight.controls[flightType].setValue(flightDetails.flightNumber);
+    this._selectedFlightsStore.setSelectedFlight(flightDetails, flightType);
+  }
 }

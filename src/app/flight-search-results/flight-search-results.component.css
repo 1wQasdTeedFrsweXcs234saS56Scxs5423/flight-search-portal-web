@@ -74,6 +74,11 @@
   background: #960505;
 }
 
+.flight-book-button[disabled] {
+  background: #808080;
+  cursor: not-allowed;
+}
+
 .flight-cost {
   width: 80%;
 }
@@ -81,4 +86,8 @@
 .flight-book {
   width: 20%;
   text-align: right;
+}
+
+.trip-itenerary {
+  margin-top: 10px;
 }

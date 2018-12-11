@@ -38,4 +38,25 @@ export class SearchResultsDomainModel extends Store<SearchResultsState> {
       maxFareForFlight: maxFareForFlight
     });
   }
+
+  public setDepartureCity(departureCity: string): void {
+    this.setState({
+      ...this.state,
+      departureCity: departureCity
+    });
+  }
+
+  public setArrivalCity(arrivalCity: string): void {
+    this.setState({
+      ...this.state,
+      arrivalCity: arrivalCity
+    });
+  }
+
+  public setHasSearched(hasSearched: boolean): void {
+    this.setState({
+      ...this.state,
+      hasSearched: hasSearched
+    });
+  }
 }

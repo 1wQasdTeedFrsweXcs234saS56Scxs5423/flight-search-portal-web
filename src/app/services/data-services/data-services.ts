@@ -16,7 +16,7 @@ export class DataServices {
 		public _cityAirportsModelMapper: CityAirportsModelMapper,
 		public _cityAirportsDomainModel: CityAirportsDomainModel,
     public _flightSearchResultsModelMapper: FlightSearchResultsModelmapper,
-    public _searchResultsDomainModel: SearchResultsDomainModel
+    public _searchResultsStore: SearchResultsDomainModel
 		) {}
 
 	public getCityAirportsList(): void {
@@ -37,11 +37,14 @@ export class DataServices {
     this._http.get(apiToCall).subscribe(
       (data: any) => {
         let searchResults: any = this._flightSearchResultsModelMapper.buildFlightSearchResults(isOneWay, data);
-				this._searchResultsDomainModel.setOneWaySearch(isOneWay);
-				this._searchResultsDomainModel.setOnwardFlightSearchResults(searchResults.onwardFlightSearchResults);
+				this._searchResultsStore.setHasSearched(true);
+				this._searchResultsStore.setOneWaySearch(isOneWay);
+				this._searchResultsStore.setOnwardFlightSearchResults(searchResults.onwardFlightSearchResults);
+				this._searchResultsStore.setDepartureCity(departureCity);
+				this._searchResultsStore.setArrivalCity(arrivalCity);
 
         if (!isOneWay) {
-					this._searchResultsDomainModel.setReturnFlightSearchResults(searchResults.returnFlightSearchResults);
+					this._searchResultsStore.setReturnFlightSearchResults(searchResults.returnFlightSearchResults);
         }
 
 				let event = new CustomEvent('flightResultsLoaded');

@@ -1,25 +1,27 @@
-<div class="result-flight">
-  <div class="flight-selector">
-    <label class="container">
-      <input type="radio" [formControlName]="flightType" [value]="flightDetails.flightNumber">
-      <span class="checkmark"></span>
-    </label>
+<form [formGroup]="searchFlight">
+  <div class="result-flight" *ngFor="let flightDetails of flightResults" (click)="selectFlight(flightDetails, flightType)">
+    <div class="flight-selector">
+      <label class="container">
+        <input type="radio" [name]="flightType" [formControlName]="flightType" [(ngModel)]="selectedFlightValue" [value]="flightDetails.flightNumber">
+        <span class="checkmark"></span>
+      </label>
+    </div>
+    <div class="flight-details">
+      <div class="flight-price"> {{flightDetails.fareCurrency}}. {{flightDetails.fare}}</div>
+      <div class="flight-operator">{{flightDetails.operator}} {{flightDetails.flightNumber}}</div>
+      <div class="flight-city">
+        <span class="city">{{flightDetails.departureCity | resolveCityName}}({{flightDetails.departureCity }})</span> to
+        <span class="city">{{flightDetails.arrivalCity | resolveCityName}}({{flightDetails.arrivalCity}})</span> <span class="city">({{flightDetails.duration}})</span>
+      </div>
+      <div class="flight-schedule-departure">
+        DEPARTURE: <span class="flight-date-time">{{flightDetails.departureDate}}</span> @ <span class="flight-date-time">{{flightDetails.departureTime}}</span>
+      </div>
+      <div class="flight-schedule-arrival">
+        ARRIVAL: <span class="flight-date-time">{{flightDetails.arrivalDate}}</span> @ <span class="flight-date-time">{{flightDetails.arrivalTime}}</span>
+      </div>
+      <div class="flight-meal-availability" *ngIf="!!flightDetails.isMealIncluded">
+        <fa-icon [icon]="faUtensils"></fa-icon> included.
+      </div>
+    </div>
   </div>
-  <div class="flight-details">
-    <div class="flight-price"> {{flightDetails.fareCurrency}}. {{flightDetails.fare}}</div>
-    <div class="flight-operator">{{flightDetails.operator}} {{flightDetails.flightNumber}}</div>
-    <div class="flight-city">
-      <span class="city">{{flightDetails.departureCity | resolveCityName}}({{flightDetails.departureCity }})</span> to
-      <span class="city">{{flightDetails.arrivalCity | resolveCityName}}({{flightDetails.arrivalCity}})</span> <span class="city">({{flightDetails.duration}})</span>
-    </div>
-    <div class="flight-schedule-departure">
-      DEPARTURE: <span class="flight-date-time">{{flightDetails.departureDate}}</span> @ <span class="flight-date-time">{{flightDetails.departureTime}}</span>
-    </div>
-    <div class="flight-schedule-arrival">
-      ARRIVAL: <span class="flight-date-time">{{flightDetails.arrivalDate}}</span> @ <span class="flight-date-time">{{flightDetails.arrivalTime}}</span>
-    </div>
-    <div class="flight-meal-availability" *ngIf="!!flightDetails.isMealIncluded">
-      <fa-icon [icon]="faUtensils"></fa-icon> included.
-    </div>
-  </div>
-</div>
+</form>
