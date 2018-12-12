@@ -84,19 +84,6 @@ input, textarea {
   cursor: default;
 }
 
-.cd-tabs__navigation a::before {
-  content: "";
-  position: absolute;
-  top: 15px;
-  left: 50%;
-  margin-left: -8px;
-  display: inline-block;
-  height: 16px;
-  width: 16px;
-  background-image: url("../img/cd-icons.svg");
-  background-repeat: no-repeat;
-}
-
 @media only screen and (min-width: 768px) {
   .cd-tabs__navigation {
     /* move the nav to the left on medium sized devices */
@@ -136,7 +123,7 @@ input, textarea {
     line-height: 60px;
     width: auto;
     text-align: left;
-    padding: 0 2.8em 0 4.6em;
+    padding: 0 2.8em 0 2.8rem;
   }
 
   .cd-tabs__navigation a.cd-selected {
