@@ -1,6 +1,6 @@
-<div class="cd-tabs js-cd-tabs">
+<div class="cd-tabs">
   <nav>
-    <ul class="cd-tabs__navigation js-cd-navigation">
+    <ul class="cd-tabs__navigation">
       <li (click)="searchMode('oneWay')"><a data-content="oneWay" [ngClass]="{'cd-selected': !!isOneWaySearch}">One way</a></li>
       <li (click)="searchMode('roundTrip')"><a data-content="roundTrip" [ngClass]="{'cd-selected': !isOneWaySearch}">Round trip</a></li>
     </ul>
@@ -126,8 +126,15 @@
             <label>Class</label>
           </div>
           <div class="value">
-            <input type="radio" formControlName="travelClass" name="travelClass" value="economy" checked>Economy
-            <input type="radio" formControlName="travelClass" name="travelClass" value="business">Business
+            <label class="container">
+              <input type="radio" formControlName="travelClass" name="travelClass" value="economy" checked>Economy
+              <span class="checkmark"></span>
+            </label>
+
+            <label class="container">
+              <input type="radio" formControlName="travelClass" name="travelClass" value="business">Business
+              <span class="checkmark"></span>
+            </label>
           </div>
         </div>
 

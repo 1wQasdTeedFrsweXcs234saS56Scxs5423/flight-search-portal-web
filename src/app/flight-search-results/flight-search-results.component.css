@@ -13,17 +13,18 @@
 }
 
 .search-results-header h1 {
-  color: white;
+  color: #fff;
+  font-size: 2.4rem;
 }
 
 .search-results-summary {
-  margin: 10px;
-  font-size: 20px;
+  margin: 1rem;
+  font-size: 2.0rem;
 }
 
 .search-results-display {
   display: flex;
-  margin: 10px 10px 50px 10px;
+  margin: 1rem 1rem 5rem 1rem;
 }
 
 .onward-search-results-display, .return-search-results-display {
@@ -32,13 +33,14 @@
 
 .onward-search-results-display > div > h2, .return-search-results-display > div > h2 {
   font-weight: bold;
-  font-size: 20px;
+  font-size: 2rem;
 }
 
 .flight-heading {
-  padding-bottom: 15px;
-  border-bottom: 1px solid #00838f;
-  margin-right: 15px;
+  padding-bottom: 1.5rem;
+  border-bottom: 0.1rem solid #00838f;
+  margin-right: 1.5rem;
+  font-size: 2.0rem;
 }
 
 .flight-selected-summary {
@@ -53,30 +55,8 @@
 
 .flight-selected-summary h1 {
   color: #fff;
-  margin: 10px;
+  margin: 1rem;
   font-weight: bold;
-}
-
-.flight-book-button {
-  border: 0;
-  border-radius: inherit;
-  background: #e81919;
-  height: 30px;
-  color: #fff;
-  font-weight: bold;
-  cursor: pointer;
-  border-color: #e81919;
-  box-shadow: none;
-  margin-right: 15px;
-}
-
-.flight-book-button:hover {
-  background: #960505;
-}
-
-.flight-book-button[disabled] {
-  background: #808080;
-  cursor: not-allowed;
 }
 
 .flight-cost {
@@ -89,5 +69,81 @@
 }
 
 .trip-itenerary {
-  margin-top: 10px;
+  margin-top: 1rem;
+  font-size: 1.6rem;
+}
+
+.flight-cost h1 {
+  font-size: 1.6rem;
+  color: #fff;
+}
+
+@media ( min-width: 960px ) {
+
+}
+
+@media ( min-width: 760px ) and ( max-width: 959px ) {
+  .flight-cost h1 {
+      font-size: 1.4rem;
+   }
+
+   .trip-itenerary {
+      font-size: 1.4rem;
+    }
+
+    .search-results-summary {
+      font-size: 1.8rem;
+    }
+
+    .onward-search-results-display > div > h2, .return-search-results-display > div > h2 {
+      font-size: 1.8rem;
+    }
+
+    .search-results-header h1 {
+      font-size: 2.2rem;
+    }
+}
+
+@media ( min-width: 480px ) and ( max-width: 759px ) {
+  .flight-cost h1 {
+      font-size: 1.2rem;
+   }
+
+   .trip-itenerary {
+      font-size: 1.2rem;
+    }
+
+    .search-results-summary {
+      font-size: 1.6rem;
+    }
+
+    .onward-search-results-display > div > h2, .return-search-results-display > div > h2 {
+      font-size: 1.6rem;
+    }
+
+    .search-results-header h1 {
+      font-size: 2.0rem;
+    }
+}
+
+@media ( max-width: 479px ) {
+  .flight-cost h1 {
+      font-size: 1.2rem;
+   }
+
+   .trip-itenerary {
+      font-size: 1.2rem;
+    }
+
+    .search-results-summary {
+      font-size: 1.6rem;
+    }
+
+    .onward-search-results-display > div > h2, .return-search-results-display > div > h2 {
+      font-size: 1.6rem;
+    }
+
+    .search-results-header h1 {
+      font-size: 2.0rem;
+    }
 }

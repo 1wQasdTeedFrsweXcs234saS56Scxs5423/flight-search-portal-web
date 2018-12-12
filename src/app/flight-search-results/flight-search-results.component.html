@@ -2,7 +2,7 @@
   <div class="search-results-header">
     <h1>Search Results</h1>
     <div class="flight-book">
-      <button class="flight-book-button" (click)="resetSearch()">Reset search</button>
+      <button class="button-secondary" (click)="resetSearch()">Reset search</button>
     </div>
   </div>
   <div class="search-results-summary" *ngIf="_searchResultsStore.state.hasSearched">
@@ -66,7 +66,7 @@
       <h1>Total Cost: Rs. {{_selectedFlightsStore.state.onwardsFlight?.fare + _selectedFlightsStore.state.returnFlight?.fare}} </h1>
     </div>
     <div class="flight-book">
-      <button class="flight-book-button" [disabled]="!searchFlight.valid">Book now</button>
+      <button class="button-secondary" [disabled]="!searchFlight.valid">Book now</button>
     </div>
   </div>
 </div>

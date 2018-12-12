@@ -1,22 +1,27 @@
 .search-results-filter-container {
-  margin: 0 30px;
-  padding: 0 30px;
-  border: 2px solid red;
-  border-radius: 5px;
+    border: 0.2rem solid red;
+    border-radius: 0.5rem;
+    width: 90%;
+    width: 90%;
+    max-width: 96rem;
+    margin: 2rem auto;
+    background: #fff;
 }
 
 .valBox {
-  height: 20px;
+  height: 2rem;
   color: black;
-  margin-top: 10px;
+  margin-top: 1rem;
   display: inline-block;
+  font-size: 1.6rem;
 }
 
 .selectedValBox {
   width: 100%;
   display: block;
   text-align: left;
-  margin-bottom: 20px;
+  margin-bottom: 2rem;
+  font-size: 1.6rem;
 }
 
 .valBox.min {
@@ -31,67 +36,112 @@
 }
 
 .range-slider {
-  margin: 20px 0 0 0%;
+  margin: 2rem 0 1rem 0%;
 }
 
 .range-slider {
   width: 100%;
 }
 
+.range-values {
+  padding: 0 3rem;
+}
+
 .range-slider__range {
   -webkit-appearance: none;
   width: 100%;
-  height: 10px;
-  border-radius: 5px;
+  height: 1rem;
+  border-radius: 0.5rem;
   background: #d7dcdf;
   outline: none;
   padding: 0;
   margin: 0;
 }
+
 .range-slider__range::-webkit-slider-thumb {
   -webkit-appearance: none;
-          appearance: none;
-  width: 20px;
-  height: 20px;
+  appearance: none;
+  width: 2rem;
+  height: 2rem;
   border-radius: 50%;
   background: #2c3e50;
   cursor: pointer;
   transition: background .15s ease-in-out;
 }
+
 .range-slider__range::-webkit-slider-thumb:hover {
   background: #1abc9c;
 }
+
 .range-slider__range:active::-webkit-slider-thumb {
   background: #1abc9c;
 }
+
 .range-slider__range::-moz-range-thumb {
-  width: 20px;
-  height: 20px;
+  width: 2rem;
+  height: 2rem;
   border: 0;
   border-radius: 50%;
   background: #2c3e50;
   cursor: pointer;
   transition: background .15s ease-in-out;
 }
+
 .range-slider__range::-moz-range-thumb:hover {
   background: #1abc9c;
 }
+
 .range-slider__range:active::-moz-range-thumb {
   background: #1abc9c;
 }
+
 .range-slider__range:focus::-webkit-slider-thumb {
-  box-shadow: 0 0 0 3px #fff, 0 0 0 6px #1abc9c;
+  box-shadow: 0 0 0 0.3rem #fff, 0 0 0 0.6rem #1abc9c;
 }
 
 .range-slider__value {
   display: inline-block;
   position: relative;
-  width: 60px;
+  width: 6rem;
   color: #fff;
-  line-height: 20px;
+  line-height: 2rem;
   text-align: center;
-  border-radius: 3px;
+  border-radius: 0.3rem;
   background: #2c3e50;
-  padding: 5px 10px;
-  margin-left: 8px;
+  padding: 0.5rem 1rem;
+  margin-left: 0.8rem;
+}
+
+@media ( min-width: 960px ) {
+  
+}
+
+@media ( min-width: 760px ) and ( max-width: 959px ) {
+ .valBox {
+  font-size: 1.4rem;
+ }
+
+ .selectedValBox {
+    font-size: 1.4rem;
+  }
+}
+
+@media ( min-width: 480px ) and ( max-width: 759px ) {
+ .valBox {
+   font-size: 1.2rem;
+ }
+
+ .selectedValBox {
+    font-size: 1.2rem;
+  }
+}
+
+@media ( max-width: 479px ) {
+ .valBox {
+   font-size: 1.2rem;
+ }
+
+ .selectedValBox {
+    font-size: 1.2rem;
+  }
 }

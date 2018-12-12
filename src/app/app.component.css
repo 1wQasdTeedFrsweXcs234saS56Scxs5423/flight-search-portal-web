@@ -1,10 +1,7 @@
 html, body{
   height: 100%;
-  font-family: Arial, Helvetica, sans-serif
-}
-
-a.active {
-  background-color: gray;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 62.5%;
 }
 
 .flight-search-container {
@@ -21,4 +18,155 @@ a.active {
   width: 60%;
   border: 1px solid black;
   position: relative;
+}
+
+.button-primary {
+    background: #00838F;
+    border: none;
+    border-radius: 0.5rem;    
+    color: #fff;
+    font-size: 1.6rem;
+    font-weight: bold;
+    padding: 1rem;
+    cursor: pointer;
+    box-shadow: none;
+}
+
+.button-secondary {
+    background: #e81919;
+    border: none;
+    border-radius: 0.5rem;
+    color: #fff;
+    font-size: 1.6rem;
+    font-weight: bold;
+    padding: 1rem;
+    cursor: pointer;
+    box-shadow: none;
+}
+
+.button-primary:hover {
+  background: #016b75;
+}
+
+.button-secondary:hover {
+  background: #960505;
+}
+
+.button-primary[disabled], .button-secondary[disabled] {
+  background: #808080;
+  cursor: not-allowed;
+}
+
+/* Custom Radio button CSS here */
+/* The container */
+.container {
+  position: relative;
+  padding-left: 2.5rem;
+  margin-bottom: 12px;
+  margin-right: 1.2rem;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2.0rem;
+  width: 2.0rem;
+  background-color: #eee;
+  border-radius: 50%;
+  border: 1px solid black;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container input:checked ~ .checkmark:after {
+  display: inline-block;
+}
+
+/* Style the indicator (dot/circle) */
+.container .checkmark:after {
+  top: 5px;
+  left: 5px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+}
+
+@media ( min-width: 960px ) {
+  
+}
+
+@media ( min-width: 760px ) and ( max-width: 959px ) {
+  .button-primary {
+    font-size: 1.4rem;
+  }
+
+  .button-secondary {
+    font-size: 1.4rem;
+  }
+
+  .checkmark {
+    height: 2.2rem;
+    width: 2.2rem;
+  }
+}
+
+@media ( min-width: 480px ) and ( max-width: 759px ) {
+  .button-primary {
+    font-size: 1.2rem;
+  }
+
+  .button-secondary {
+    font-size: 1.2rem;
+  }
+
+  .checkmark {
+    height: 2.0rem;
+    width: 2.0rem;
+  }
+}
+
+@media ( max-width: 479px ) {
+  .button-primary {
+    font-size: 1.2rem;
+  }
+
+  .button-secondary {
+    font-size: 1.2rem;
+  }
+
+  .checkmark {
+    height: 2.0rem;
+    width: 2.0rem;
+  }
 }

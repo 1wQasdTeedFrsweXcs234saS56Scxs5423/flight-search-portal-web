@@ -3,24 +3,9 @@
   box-sizing: border-box;
 }
 
-html {
-  font-size: 62.5%;
-}
-
 body {
   font-size: 1.6rem;
-  font-family: "PT Sans", sans-serif;
-  color: #f8f7ee;
-  background-color: #29324e;
-}
-
-a {
-  color: #f05451;
-  text-decoration: none;
-}
-
-img, embed, object, video, svg {
-  max-width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 input, textarea {
@@ -28,74 +13,24 @@ input, textarea {
   font-size: 1.6rem;
 }
 
-header {
-  position: relative;
-  height: 160px;
-  line-height: 180px;
-  text-align: center;
-}
-
-header h1 {
-  font-size: 2rem;
-}
-
-@media only screen and (min-width: 768px) {
-  header {
-    height: 200px;
-    line-height: 225px;
-  }
-  header h1 {
-    font-size: 2.6rem;
-  }
-}
-
 .cd-tabs {
   position: relative;
   width: 90%;
   max-width: 960px;
-  margin: 2em auto;
-}
-
-@supports (background: linear-gradient(to left, #000, #000)) or (background: -webkit-linear-gradient(to left, #000, #000)) {
-  /* if linear-gradient is supported */
-  .cd-tabs::after {
-    /* subtle gradient layer on top right of the tabbed navigation- to indicate it's possible to scroll */
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 60px;
-    width: 50px;
-    z-index: 1;
-    pointer-events: none;
-    background: -webkit-gradient(linear, right top, left top, from(#f8f7ee), to(rgba(248, 247, 238, 0)));
-    background: linear-gradient(to left, #f8f7ee, rgba(248, 247, 238, 0));
-    visibility: visible;
-    opacity: 1;
-    -webkit-transition: opacity .3s 0s, visibility 0s 0s;
-    transition: opacity .3s 0s, visibility 0s 0s;
-  }
-  .cd-tabs.cd-tabs--scroll-ended::after {
-    /* class added in JavaScript - remove the gradient layer when it's no longer possible to scroll */
-    visibility: hidden;
-    opacity: 0;
-    -webkit-transition: opacity .3s 0s, visibility 0s .3s;
-    transition: opacity .3s 0s, visibility 0s .3s;
-  }
+  margin: 2rem auto;
+  background: #fff;
 }
 
 .cd-tabs nav {
   overflow: auto;
   -webkit-overflow-scrolling: touch;
-  background: #f8f7ee;
-  -webkit-box-shadow: inset 0 -2px 3px rgba(203, 196, 130, 0.06);
-  box-shadow: inset 0 -2px 3px rgba(203, 196, 130, 0.06);
 }
 
 @media only screen and (min-width: 768px) {
   .cd-tabs::after {
     display: none;
   }
+
   .cd-tabs nav {
     position: absolute;
     top: 0;
@@ -107,22 +42,11 @@ header h1 {
   }
 }
 
-@media only screen and (min-width: 960px) {
-  .cd-tabs nav {
-    position: relative;
-    float: none;
-    background: transparent;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-  }
-}
-
 .cd-tabs__navigation {
   width: 360px;
 }
 
 .cd-tabs__navigation:after {
-  /* clearfix */
   content: "";
   display: table;
   clear: both;
@@ -138,26 +62,29 @@ header h1 {
   height: 60px;
   width: 60px;
   text-align: center;
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: #c3c2b9;
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #fff;
   padding-top: 35px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 }
 
 .cd-tabs__navigation a:hover {
-  color: #29324e;
-  background-color: rgba(233, 230, 202, 0.3);
+  color: #fff;
+  background-color: #016d77;
+  cursor: pointer;
 }
 
 .cd-tabs__navigation a.cd-selected {
-  background-color: #ffffff !important;
+  background: #ff0000;
+  color: #fff;
   -webkit-box-shadow: inset 0 2px 0 #f05451;
   box-shadow: inset 0 2px 0 #f05451;
-  color: #29324e;
+  cursor: default;
 }
 
 .cd-tabs__navigation a::before {
-  /* icons */
   content: "";
   position: absolute;
   top: 15px;
@@ -168,54 +95,6 @@ header h1 {
   width: 16px;
   background-image: url("../img/cd-icons.svg");
   background-repeat: no-repeat;
-}
-
-.cd-tabs__navigation a[data-content='new']::before {
-  background-position: 0 0;
-}
-
-.cd-tabs__navigation a[data-content='gallery']::before {
-  background-position: -16px 0;
-}
-
-.cd-tabs__navigation a[data-content='store']::before {
-  background-position: -32px 0;
-}
-
-.cd-tabs__navigation a[data-content='settings']::before {
-  background-position: -48px 0;
-}
-
-.cd-tabs__navigation a[data-content='trash']::before {
-  background-position: -64px 0;
-}
-
-.cd-tabs__navigation a[data-content='inbox']::before {
-  background-position: -80px 0;
-}
-
-.cd-tabs__navigation a[data-content='new'].cd-selected::before {
-  background-position: 0 -16px;
-}
-
-.cd-tabs__navigation a[data-content='gallery'].cd-selected::before {
-  background-position: -16px -16px;
-}
-
-.cd-tabs__navigation a[data-content='store'].cd-selected::before {
-  background-position: -32px -16px;
-}
-
-.cd-tabs__navigation a[data-content='settings'].cd-selected::before {
-  background-position: -48px -16px;
-}
-
-.cd-tabs__navigation a[data-content='trash'].cd-selected::before {
-  background-position: -64px -16px;
-}
-
-.cd-tabs__navigation a[data-content='inbox'].cd-selected::before {
-  background-position: -80px -16px;
 }
 
 @media only screen and (min-width: 768px) {
@@ -239,25 +118,33 @@ header h1 {
 }
 
 @media only screen and (min-width: 960px) {
+  .cd-tabs nav {
+    position: relative;
+    float: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+  
   .cd-tabs__navigation {
     /* tabbed navigation on top on big devices */
     width: auto;
-    background-color: #f8f7ee;
-    -webkit-box-shadow: inset 0 -2px 3px rgba(203, 196, 130, 0.06);
-    box-shadow: inset 0 -2px 3px rgba(203, 196, 130, 0.06);
+    background-color: #fff;
   }
+
   .cd-tabs__navigation a {
     height: 60px;
     line-height: 60px;
     width: auto;
     text-align: left;
-    font-size: 1.4rem;
     padding: 0 2.8em 0 4.6em;
   }
+
   .cd-tabs__navigation a.cd-selected {
-    -webkit-box-shadow: inset 0 2px 0 #f05451;
-    box-shadow: inset 0 2px 0 #f05451;
+    border-top: 2px solid #ff0000;
+    border-left: 2px solid #ff0000;
+    border-right: 2px solid #ff0000;
   }
+
   .cd-tabs__navigation a::before {
     top: 50%;
     margin-top: -8px;
@@ -277,10 +164,11 @@ header h1 {
 
 .cd-tabs__content li.cd-selected {
   display: block;
-  -webkit-animation: cd-fade-in 0.5s;
-  animation: cd-fade-in 0.5s;
   border: 2px solid red;
-  border-radius: 5px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
 .cd-tabs__content li p {
@@ -311,79 +199,33 @@ header h1 {
   }
 }
 
-@-webkit-keyframes cd-fade-in {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes cd-fade-in {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-.cd-nugget-info {
-  text-align: center;
-  position: absolute;
-  width: 100%;
-  height: 40px;
-  line-height: 40px;
-  top: 0;
-  left: 0;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-.cd-nugget-info a {
-  width: 160px;
-  position: relative;
-  font-size: 14px;
-  color: #6375ad;
-  -webkit-transition: all 0.2s;
-  -moz-transition: all 0.2s;
-  transition: all 0.2s;
-}
-.cd-nugget-info a:hover {
-  opacity: .8;
-}
-.cd-nugget-info span {
-  vertical-align: middle;
-  display: inline-block;
-}
-.cd-nugget-info span svg {
-  display: block;
-}
-.cd-nugget-info .cd-nugget-info-arrow {
-  fill: #6375ad;
-}
 .search-suggestions {
   display: block;
 }
 
-/* Form Responsive Style */
 div.input {
   width: 100%;
   padding: 5px 0;
 }
 
 div.input .label {
-  width: 20%;
+  width: 30%;
   display: inline-block;
 }
 
+div.input .label label {
+  font-size: 1.6rem;
+}
+
 div.input .value {
-  width: 80%;
+  width: 70%;
   display: inline-block;
+  font-size: 1.6rem;
 }
 
 div.input .value .input-field {
   width: 100%;
+  font-size: 1.6rem;
 }
 
 div.input .value .input-field-passengers {
@@ -392,19 +234,6 @@ div.input .value .input-field-passengers {
 
 div.input .value .input-field-date {
   max-width: 225px;
-}
-
-.button-primary {
-    background: #00838F;
-    border: none;
-    color: #fff;
-    font-size: 18px;
-    padding: 10px;
-    border-radius: 5px;
-}
-
-.button-primary[disabled] {
-  background: #758e90;
 }
 
 .smart-search-input {
@@ -479,16 +308,62 @@ div.input .value .input-field-date {
 }
 
 @media ( min-width: 960px ) {
-
+  
 }
 
 @media ( min-width: 760px ) and ( max-width: 959px ) {
-  
+  div.input .label label {
+    font-size: 1.2rem;
+  }
+
+  div.input .value .input-field {
+    font-size: 1.4rem;
+  }
+
+  .cd-tabs__navigation a {
+    font-size: 1.4rem;
+  }
+
+  .flight-cost h1 {
+    font-size: 1.4rem;
+  }
+
+  div.input .value {
+    font-size: 1.4rem;
+  }
+
+  .button-primary {
+    font-size: 1.4rem;
+  }
 }
 
 @media ( min-width: 480px ) and ( max-width: 759px ) {
   div.input .label {
     padding-bottom: 5px;
+  }
+
+  div.input .label label {
+    font-size: 1.2rem;
+  }
+
+  div.input .value .input-field {
+    font-size: 1.2rem;
+  }
+
+  .cd-tabs__navigation a {
+    font-size: 1.2rem;
+  }
+
+  .flight-cost h1 {
+    font-size: 1.2rem;
+  }
+
+  div.input .value {
+    font-size: 1.2rem;
+  }
+
+  .button-primary {
+    font-size: 1.2rem;
   }
 
   div.input .label, div.input .value {
@@ -502,6 +377,30 @@ div.input .value .input-field-date {
 }
 
 @media ( max-width: 479px ) {
+  div.input .label label {
+    font-size: 1.2rem;
+  }
+
+  div.input .value .input-field {
+    font-size: 1.2rem;
+  }
+  
+  .cd-tabs__navigation a {
+    font-size: 1.2rem;
+  }
+
+  .flight-cost h1 {
+    font-size: 1.2rem;
+  }
+
+  div.input .value {
+    font-size: 1.2rem;
+  }
+
+  .button-primary {
+    font-size: 1.2rem;
+  }
+
   div.input .label, div.input .value {
     width: 100%;
     display: block;
