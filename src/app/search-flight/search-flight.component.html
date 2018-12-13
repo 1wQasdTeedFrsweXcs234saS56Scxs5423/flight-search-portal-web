@@ -7,7 +7,11 @@
   </nav>
 
   <form [formGroup]="searchFlight">
-    <ul class="cd-tabs__content js-cd-content">
+    <ul class="cd-tabs__content">
+      <div class="btn-group" style="width:100%">
+        <button class="trip-type-btn one-way" [ngClass]="{'cd-btn-selected': !!isOneWaySearch}" (click)="searchMode('oneWay')">One way</button>
+        <button class="trip-type-btn round-trip" [ngClass]="{'cd-btn-selected': !isOneWaySearch}" (click)="searchMode('roundTrip')">Round trip</button>
+      </div>
       <li class="cd-selected">
         <div class="input">
           <div class="label">
@@ -109,7 +113,7 @@
           </div>
         </div>
 
-        <div class="input">
+        <div class="input passenger-count">
           <div class="label">
             <label>Passengers</label>
           </div>
@@ -121,11 +125,15 @@
           </div>
         </div>
 
-        <div class="input">
+        <div class="input passenger-travel-class">
           <div class="label">
-            <label>Class</label>
+            <label class="travel-class-label">Class</label>
+            <label class="travel-class-selection">
+              <span *ngIf="isTravelEconomy">Economy</span>
+              <span *ngIf="!isTravelEconomy">Business</span>
+            </label>
           </div>
-          <div class="value">
+          <div class="value travel-class-radio">
             <label class="container">
               <input type="radio" formControlName="travelClass" name="travelClass" value="economy" checked>Economy
               <span class="checkmark"></span>
@@ -134,6 +142,12 @@
             <label class="container">
               <input type="radio" formControlName="travelClass" name="travelClass" value="business">Business
               <span class="checkmark"></span>
+            </label>
+          </div>
+          <div class="value travel-class-switch">
+            <label class="switch">
+              <input type="checkbox" (click)="switchTravelClass()" formControlName="travelClass" name="travelClass" [checked]="isTravelEconomy" [value]="isTravelEconomy ? 'economy' : 'business'">
+              <span class="slider round"></span>
             </label>
           </div>
         </div>

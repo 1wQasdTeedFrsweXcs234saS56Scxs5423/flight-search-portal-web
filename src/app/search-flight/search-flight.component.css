@@ -104,7 +104,33 @@ input, textarea {
   }
 }
 
+.cd-tabs__content {
+  background: #ffffff;
+}
+
+.cd-tabs__content li {
+  display: none;
+  padding: 1.4em;
+}
+
+.cd-tabs__content li.cd-selected {
+  display: block;
+  border: 2px solid red;
+  border-top-left-radius: 0;
+  border-top-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.cd-tabs__content li p {
+  font-size: 1.4rem;
+  line-height: 1.6;
+  color: #8493bf;
+  margin-bottom: 2em;
+}
+
 @media only screen and (min-width: 960px) {
+
   .cd-tabs nav {
     position: relative;
     float: none;
@@ -138,43 +164,7 @@ input, textarea {
     margin-left: 0;
     left: 40px;
   }
-}
 
-.cd-tabs__content {
-  background: #ffffff;
-}
-
-.cd-tabs__content li {
-  display: none;
-  padding: 1.4em;
-}
-
-.cd-tabs__content li.cd-selected {
-  display: block;
-  border: 2px solid red;
-  border-top-left-radius: 0;
-  border-top-right-radius: 5px;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-}
-
-.cd-tabs__content li p {
-  font-size: 1.4rem;
-  line-height: 1.6;
-  color: #8493bf;
-  margin-bottom: 2em;
-}
-
-@media only screen and (min-width: 768px) {
-  .cd-tabs__content {
-    min-height: 480px;
-  }
-  .cd-tabs__content li {
-    padding: 2em 2em 2em 7em;
-  }
-}
-
-@media only screen and (min-width: 960px) {
   .cd-tabs__content {
     min-height: 0;
   }
@@ -294,8 +284,130 @@ div.input .value .input-field-date {
   font-weight: 500;
 }
 
+.btn-group button {
+  background-color: #00838F; 
+  border: 1px solid #00838F; 
+  color: white; 
+  padding: 0.2rem 2rem; 
+  cursor: pointer; 
+  float: left;
+  margin: 1rem 0 0 0; 
+}
+
+.cd-btn-selected {
+  background-color: #ff0000 !important; 
+  border: 1px solid #ff0000 !important; 
+  cursor: not-allowed; 
+}
+
+.btn-group button.one-way {
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  margin-left: 1rem; 
+}
+
+.btn-group button.round-trip {
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+.btn-group:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.btn-group button:not(:last-child) {
+  border-right: none; 
+}
+
+.btn-group button:hover {
+  background-color: #00666f;
+}
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 22px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 4px;
+  bottom: 2px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(15px);
+  -ms-transform: translateX(15px);
+  transform: translateX(15px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
 @media ( min-width: 960px ) {
-  
+  .btn-group {
+    display: none;
+  }
+
+  .travel-class-radio {
+    display: block; 
+  }
+
+  .travel-class-switch {
+    display: none !important; 
+  }
+
+  .travel-class-label {
+    display: block;
+  }
+
+  .travel-class-selection {
+    display: none;
+  }
 }
 
 @media ( min-width: 760px ) and ( max-width: 959px ) {
@@ -321,6 +433,84 @@ div.input .value .input-field-date {
 
   .button-primary {
     font-size: 1.4rem;
+  }
+
+  .cd-tabs {
+    width: 100%;
+    margin: 0;
+    max-width: 100%;
+    height: 143px;
+  }
+
+  .cd-tabs nav {
+    display: none;
+  }
+
+  .cd-tabs__content {
+    border: 0.2rem solid #ff0000;
+  }
+
+  .cd-tabs__content li {
+    padding: 0;
+  }
+
+  div.input {
+    display: inline-block;
+    width: 20%;
+    padding: 5px 0;
+  }
+
+  div.input .label {
+    display: block;
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+
+  div.input .value {
+    display: block;
+    width: 100%;
+  }
+
+  .smart-search-input {
+    width: 90%;
+  }
+
+  div.input .value .input-field[type="date"] {
+    width: 75%;
+  }
+
+  .cd-tabs__content li.cd-selected {
+    padding: 1rem;
+    border: none;
+    border-radius: 0;
+  }
+
+  .trip-type-btn {
+    width: 13%;
+  }
+
+  .travel-class-radio {
+    display: none !important; 
+  }
+
+  .travel-class-switch {
+    display: block !important; 
+  }
+
+  .travel-class-label {
+    display: none;
+  }
+
+  .travel-class-selection {
+    display: block;
+  }
+
+  div.input.passenger-count {
+    width: 8%;
+  }
+
+  div.input.passenger-travel-class {
+    width: 8%;
   }
 }
 
@@ -361,6 +551,77 @@ div.input .value .input-field-date {
   div.input .value .input-field {
     width: 100%;
   }
+
+  .cd-tabs {
+    width: 100%;
+    margin: 0;
+    max-width: 100%;
+    height: 117px;
+  }
+
+  .cd-tabs nav {
+    display: none;
+  }
+
+  .cd-tabs__content li {
+    padding: 0;
+  }
+
+  div.input {
+    display: inline-block;
+    width: 20%;
+    padding: 5px 0;
+  }
+
+  div.input .label {
+    display: block;
+    width: 100%;
+  }
+
+  div.input .value {
+    display: block;
+    width: 100%;
+  }
+
+  .smart-search-input {
+    width: 90%;
+  }
+
+  div.input .value .input-field[type="date"] {
+    width: 75%;
+  }
+
+  .cd-tabs__content {
+    border: 0.2rem solid #ff0000;
+  }
+
+  .trip-type-btn {
+    width: 13%;
+  }
+
+  .travel-class-radio {
+    display: none !important;
+  }
+
+  .travel-class-switch {
+    display: block !important;
+  }
+
+  .travel-class-label {
+    display: none;
+  }
+
+  .travel-class-selection {
+    display: block;
+  }
+
+  div.input.passenger-count {
+    width: 8%;
+  }
+
+  div.input.passenger-travel-class {
+    width: 8%;
+  }
 }
 
 @media ( max-width: 479px ) {
@@ -395,5 +656,76 @@ div.input .value .input-field-date {
 
   div.input .value .input-field {
     width: 100%;
+  }
+
+  .cd-tabs {
+    width: 100%;
+    margin: 0;
+    max-width: 100%;
+    height: 117px;
+  }
+
+  .cd-tabs nav {
+    display: none;
+  }
+
+  .cd-tabs__content li {
+    padding: 0;
+  }
+
+  div.input {
+    display: inline-block;
+    width: 20%;
+    padding: 5px 0;
+  }
+
+  div.input .label {
+    display: block;
+    width: 100%;
+  }
+
+  div.input .value {
+    display: block;
+    width: 100%;
+  }
+
+  .smart-search-input {
+    width: 90%;
+  }
+
+  div.input .value .input-field[type="date"] {
+    width: 75%;
+  }
+
+  .cd-tabs__content {
+    border: 0.2rem solid #ff0000;
+  }
+
+  .trip-type-btn {
+    width: 13%;
+  }
+
+  .travel-class-radio {
+    display: none !important; 
+  }
+
+  .travel-class-switch {
+    display: block !important; 
+  }
+
+  .travel-class-label {
+    display: none;
+  }
+
+  .travel-class-selection {
+    display: block;
+  }
+
+  div.input.passenger-count {
+    width: 8%;
+  }
+
+  div.input.passenger-travel-class {
+    width: 8%;
   }
 }

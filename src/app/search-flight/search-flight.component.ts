@@ -41,6 +41,7 @@ export class SearchFlightComponent implements OnInit {
 
   public isSelectingFromCity: boolean = false;
   public isSelectingToCity: boolean = false;
+  public isTravelEconomy: boolean = true;
  
   public searchFlight: FormGroup = new FormGroup({
     departureCity: new FormControl('PNQ', [Validators.required, Validators.minLength(3), Validators.maxLength(50), Validators.pattern(this.citySearchNamePattern)]),
@@ -165,5 +166,10 @@ export class SearchFlightComponent implements OnInit {
     !!this.searchFlight.controls.returnDate && this.searchFlight.removeControl('returnDate');
     !!this.searchFlight.controls.returnDate && this.searchFlight.addControl('returnDate', new FormControl('', Validators.required));
     this.searchFlight.controls['numberOfPassengers'].setValue('');  
+  }
+
+  public switchTravelClass() {
+    this.isTravelEconomy = !this.isTravelEconomy;
+    this.searchFlight.controls['travelClass'].setValue(this.isTravelEconomy ? 'economy' : 'business');
   }
 }
