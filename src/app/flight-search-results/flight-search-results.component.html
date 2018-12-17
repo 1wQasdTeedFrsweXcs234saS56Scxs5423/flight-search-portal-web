@@ -1,9 +1,7 @@
 <div class="search-result-container">
   <div class="search-results-header">
     <h1>Search Results</h1>
-    <div class="flight-book">
-      <button class="button-secondary" (click)="resetSearch()">Reset search</button>
-    </div>
+    <button class="button-secondary header-button" (click)="resetSearch()">Reset search</button>
   </div>
   <div class="search-results-summary" *ngIf="_searchResultsStore.state.hasSearched">
     <span *ngIf="_searchResultsStore.state.isSearchOneWay" [ngPlural]="_searchResultsStore.state.onwardsFlights?.length">

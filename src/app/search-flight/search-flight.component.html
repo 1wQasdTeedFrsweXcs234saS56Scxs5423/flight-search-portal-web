@@ -152,8 +152,9 @@
           </div>
         </div>
 
-        <div class="input">
+        <div class="input search-input">
           <button [disabled]="!searchFlight.valid" class="button-primary" (click)="searchFlights()">Search Flights</button>
+          <button [disabled]="!searchFlight.valid" class="button-primary-small" (click)="searchFlights()"><fa-icon [icon]="faSearchPlus"></fa-icon></button>
         </div>
       </li>
     </ul>

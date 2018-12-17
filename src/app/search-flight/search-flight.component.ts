@@ -8,6 +8,8 @@ import { DataServices } from '../services/data-services/data-services';
 import { StaticDataServices } from '../services/data-services/static-services';
 import { DateService } from '../services/date-service/date.service';
 
+import { faSearchPlus } from '@fortawesome/free-solid-svg-icons';
+
 import * as models from '../models/models';
 
 export const SEARCH_FLIGHT_SELECTOR = 'search-flight';
@@ -42,6 +44,8 @@ export class SearchFlightComponent implements OnInit {
   public isSelectingFromCity: boolean = false;
   public isSelectingToCity: boolean = false;
   public isTravelEconomy: boolean = true;
+
+  public faSearchPlus: any = faSearchPlus;
  
   public searchFlight: FormGroup = new FormGroup({
     departureCity: new FormControl('PNQ', [Validators.required, Validators.minLength(3), Validators.maxLength(50), Validators.pattern(this.citySearchNamePattern)]),

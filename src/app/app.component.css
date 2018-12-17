@@ -20,6 +20,15 @@ html, body{
   position: relative;
 }
 
+input[type="date"]::-webkit-inner-spin-button {
+    display: none;
+    -webkit-appearance: none;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  margin: -6px;
+}
+
 .button-primary {
     background: #00838F;
     border: none;
@@ -28,6 +37,18 @@ html, body{
     font-size: 1.6rem;
     font-weight: bold;
     padding: 1rem;
+    cursor: pointer;
+    box-shadow: none;
+}
+
+.button-primary-small {
+  background: #00838F;
+    border: none;
+    border-radius: 0.5rem;    
+    color: #fff;
+    font-size: 1.6rem;
+    font-weight: bold;
+    padding: 0.5rem 0.7rem;
     cursor: pointer;
     box-shadow: none;
 }
@@ -48,11 +69,15 @@ html, body{
   background: #016b75;
 }
 
+.button-primary-small:hover {
+  background: #016b75;
+}
+
 .button-secondary:hover {
   background: #960505;
 }
 
-.button-primary[disabled], .button-secondary[disabled] {
+.button-primary[disabled], .button-secondary[disabled], .button-primary-small[disabled] {
   background: #808080;
   cursor: not-allowed;
 }
@@ -180,6 +205,12 @@ html, body{
     .search-results-component {
       width: 100%;
     }
+
+    .search-results-component {
+      width: 100%;
+      min-height: 100vh;
+      height: auto;
+    }
 }
 
 @media ( max-width: 479px ) {
@@ -206,5 +237,11 @@ html, body{
 
     .search-results-component {
       width: 100%;
+    }
+
+    .search-results-component {
+      width: 100%;
+      min-height: 100vh;
+      height: auto;
     }
 }

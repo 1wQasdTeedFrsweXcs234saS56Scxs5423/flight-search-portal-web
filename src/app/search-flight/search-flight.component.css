@@ -115,11 +115,6 @@ input, textarea {
 
 .cd-tabs__content li.cd-selected {
   display: block;
-  border: 2px solid red;
-  border-top-left-radius: 0;
-  border-top-right-radius: 5px;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
 }
 
 .cd-tabs__content li p {
@@ -174,6 +169,12 @@ input, textarea {
   .cd-tabs__content li p {
     font-size: 1.6rem;
   }
+
+  .cd-selected {
+    border: 2px solid red;
+    border-radius: 5px;
+    border-top-left-radius: 0;
+  }
 }
 
 .search-suggestions {
@@ -187,7 +188,8 @@ div.input {
 
 div.input .label {
   width: 30%;
-  display: inline-block;
+  display: inline-flex;
+  vertical-align: top;
 }
 
 div.input .label label {
@@ -408,9 +410,18 @@ input:checked + .slider:before {
   .travel-class-selection {
     display: none;
   }
+
+  .button-primary-small {
+    display: none;
+  }
 }
 
 @media ( min-width: 760px ) and ( max-width: 959px ) {
+  .city-options {
+    width: 160%;
+    border: 1px solid #777575;
+  }
+
   div.input .label label {
     font-size: 1.2rem;
   }
@@ -432,14 +443,20 @@ input:checked + .slider:before {
   }
 
   .button-primary {
-    font-size: 1.4rem;
+    display: none;
+  }
+
+  .button-primary-small {
+    display: inline-block;
+    font-size: 2.0rem;
+    margin-top: 6px;
   }
 
   .cd-tabs {
     width: 100%;
     margin: 0;
     max-width: 100%;
-    height: 143px;
+    height: fit-content;
   }
 
   .cd-tabs nav {
@@ -456,8 +473,9 @@ input:checked + .slider:before {
 
   div.input {
     display: inline-block;
-    width: 20%;
+    width: 15%;
     padding: 5px 0;
+    vertical-align: top;
   }
 
   div.input .label {
@@ -486,7 +504,8 @@ input:checked + .slider:before {
   }
 
   .trip-type-btn {
-    width: 13%;
+    width: auto;
+    min-width: 10.5rem;
   }
 
   .travel-class-radio {
@@ -511,6 +530,14 @@ input:checked + .slider:before {
 
   div.input.passenger-travel-class {
     width: 8%;
+    position: relative;
+    top: 0;
+    left: 8px;
+  }
+
+  div.input.search-input {
+    width: auto;
+    float: right;
   }
 }
 
@@ -540,7 +567,7 @@ input:checked + .slider:before {
   }
 
   .button-primary {
-    font-size: 1.2rem;
+    display: none;
   }
 
   div.input .label, div.input .value {
@@ -556,7 +583,7 @@ input:checked + .slider:before {
     width: 100%;
     margin: 0;
     max-width: 100%;
-    height: 117px;
+    height: fit-content;
   }
 
   .cd-tabs nav {
@@ -567,10 +594,17 @@ input:checked + .slider:before {
     padding: 0;
   }
 
+  .cd-tabs__content li.cd-selected {
+    padding: 1rem;
+    border: none;
+    border-radius: 0;
+  }
+
   div.input {
     display: inline-block;
-    width: 20%;
+    width: 15%;
     padding: 5px 0;
+    vertical-align: top;
   }
 
   div.input .label {
@@ -596,7 +630,8 @@ input:checked + .slider:before {
   }
 
   .trip-type-btn {
-    width: 13%;
+    width: auto;
+    min-width: 10.5rem;
   }
 
   .travel-class-radio {
@@ -622,6 +657,29 @@ input:checked + .slider:before {
   div.input.passenger-travel-class {
     width: 8%;
   }
+
+  .city-options {
+    width: 160%;
+    border: 1px solid #777575;
+  }
+
+  div.input.passenger-travel-class {
+    width: 8%;
+    position: relative;
+    top: 0;
+    left: 8px;
+  }
+
+  div.input.search-input {
+    width: auto;
+    float: right;
+  }
+
+  .button-primary-small {
+    display: inline-block;
+    font-size: 2.0rem;
+    margin-top: 6px;
+  }
 }
 
 @media ( max-width: 479px ) {
@@ -646,7 +704,7 @@ input:checked + .slider:before {
   }
 
   .button-primary {
-    font-size: 1.2rem;
+    display: none;
   }
 
   div.input .label, div.input .value {
@@ -662,7 +720,7 @@ input:checked + .slider:before {
     width: 100%;
     margin: 0;
     max-width: 100%;
-    height: 117px;
+    height: fit-content;
   }
 
   .cd-tabs nav {
@@ -675,8 +733,9 @@ input:checked + .slider:before {
 
   div.input {
     display: inline-block;
-    width: 20%;
+    width: 15%;
     padding: 5px 0;
+    vertical-align: top;
   }
 
   div.input .label {
@@ -702,7 +761,8 @@ input:checked + .slider:before {
   }
 
   .trip-type-btn {
-    width: 13%;
+    width: auto;
+    min-width: 10.5rem;
   }
 
   .travel-class-radio {
@@ -725,7 +785,26 @@ input:checked + .slider:before {
     width: 8%;
   }
 
+  .city-options {
+    width: 160%;
+    border: 1px solid #777575;
+  }
+
   div.input.passenger-travel-class {
     width: 8%;
+    position: relative;
+    top: 0;
+    left: 8px;
+  }
+
+  div.input.search-input {
+    width: auto;
+    float: right;
+  }
+
+  .button-primary-small {
+    display: inline-block;
+    font-size: 2.0rem;
+    margin-top: 6px;
   }
 }
