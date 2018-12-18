@@ -14,7 +14,7 @@
   align-items: center;
 }
 
-.header-button {
+.header-button, .footer-button {
   margin-right: 1rem;
 }
 

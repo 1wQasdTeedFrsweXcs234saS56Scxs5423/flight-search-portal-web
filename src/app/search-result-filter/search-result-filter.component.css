@@ -2,7 +2,6 @@
     border: 0.2rem solid red;
     border-radius: 0.5rem;
     width: 90%;
-    width: 90%;
     max-width: 96rem;
     margin: 2rem auto;
     background: #fff;
@@ -124,6 +123,13 @@
  .selectedValBox {
     font-size: 1.4rem;
   }
+
+  .search-results-filter-container {
+    width: 99.5%;
+    border-radius: 0;
+    max-width: none;
+    margin: 0;
+  }
 }
 
 @media ( min-width: 480px ) and ( max-width: 759px ) {
@@ -134,6 +140,13 @@
  .selectedValBox {
     font-size: 1.2rem;
   }
+
+  .search-results-filter-container {
+    width: 99.5%;
+    border-radius: 0;
+    max-width: none;
+    margin: 0;
+  }
 }
 
 @media ( max-width: 479px ) {
@@ -143,5 +156,12 @@
 
  .selectedValBox {
     font-size: 1.2rem;
+  }
+
+  .search-results-filter-container {
+    width: 99%;
+    border-radius: 0;
+    max-width: none;
+    margin: 0;
   }
 }

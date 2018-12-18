@@ -233,15 +233,13 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
     .search-component {
       width: 100%;
-    }
-
-    .search-results-component {
-      width: 100%;
+      border: none;
     }
 
     .search-results-component {
       width: 100%;
       min-height: 100vh;
       height: auto;
+      border: none;
     }
 }
