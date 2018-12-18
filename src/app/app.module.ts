@@ -15,8 +15,6 @@ import { ROUTES } from './app.routes';
 // App is our top level component
 import { AppComponent } from './app.component';
 import { SearchFlightComponent } from './search-flight/search-flight.component';
-import { APP_RESOLVER_PROVIDERS } from './app.resolver';
-import { AppState, InternalStateType } from './app.service';
 import { NoContentComponent } from './no-content';
 import { FlightSearchResultsComponent } from './flight-search-results';
 import { ResultFlightComponent } from './flight-search-results/result-flight';
@@ -25,18 +23,6 @@ import { ResolveCityName } from './pipes/city-name.pipe';
 import { SearchResultFilter } from './pipes/search-result-filter.pipe';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-
-// Application wide providers
-const APP_PROVIDERS = [
-  ...APP_RESOLVER_PROVIDERS,
-  AppState
-];
-
-interface StoreType {
-  state: InternalStateType;
-  restoreInputValues: () => void;
-  disposeOldHosts: () => void;
-}
 
 /**
  * `AppModule` is the main entry point into Angular2's bootstraping process
@@ -73,8 +59,7 @@ interface StoreType {
    * Expose our Services and Providers into Angular's dependency injection.
    */
   providers: [
-    environment.ENV_PROVIDERS,
-    APP_PROVIDERS
+    environment.ENV_PROVIDERS
   ]
 })
 export class AppModule {}
