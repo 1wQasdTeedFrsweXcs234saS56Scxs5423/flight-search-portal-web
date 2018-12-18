@@ -1,5 +1,6 @@
-/node_modules
 # tipe.io
+
+node_modules
 
 # Logs
 logs
