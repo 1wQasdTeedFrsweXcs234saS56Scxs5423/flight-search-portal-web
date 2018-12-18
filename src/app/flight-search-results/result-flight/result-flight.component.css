@@ -122,4 +122,8 @@
   .flight-meal-availability {
     font-size: 1.2rem;
   }
+
+  .result-flight {
+    width: 92%;
+  }
 }
