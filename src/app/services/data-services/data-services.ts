@@ -5,6 +5,7 @@ import { CityAirportsModelMapper } from '../../model-mappers/city-airport.modelm
 import { CityAirportsDomainModel } from '../../domain-models/city-airports.domainmodel';
 import { FlightSearchResultsModelmapper } from '../../model-mappers/flight-search-results.modelmapper';
 import { SearchResultsDomainModel } from '../../domain-models/search-results.domainmodel';
+import { AppServices } from '../../services/app/app.services';
 
 @Injectable({
 	providedIn: 'root'
@@ -16,7 +17,8 @@ export class DataServices {
 		public _cityAirportsModelMapper: CityAirportsModelMapper,
 		public _cityAirportsDomainModel: CityAirportsDomainModel,
     public _flightSearchResultsModelMapper: FlightSearchResultsModelmapper,
-    public _searchResultsStore: SearchResultsDomainModel
+    public _searchResultsStore: SearchResultsDomainModel,
+		public _appServices: AppServices
 		) {}
 
 	public getCityAirportsList(): void {
@@ -47,8 +49,7 @@ export class DataServices {
 					this._searchResultsStore.setReturnFlightSearchResults(searchResults.returnFlightSearchResults);
         }
 
-				let event = new CustomEvent('flightResultsLoaded');
-				document.dispatchEvent(event);
+				this._appServices.trigger('flightResultsLoaded');
       },
       (error: any) => {
         // Show full page error if you are unable to load the search results

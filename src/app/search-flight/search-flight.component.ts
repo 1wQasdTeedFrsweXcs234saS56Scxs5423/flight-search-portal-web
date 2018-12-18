@@ -9,6 +9,7 @@ import { StaticDataServices } from '../services/data-services/static-services';
 import { DateService } from '../services/date-service/date.service';
 
 import { faSearchPlus } from '@fortawesome/free-solid-svg-icons';
+import { AppServices } from '../services/app/app.services';
 
 import * as models from '../models/models';
 
@@ -60,7 +61,8 @@ export class SearchFlightComponent implements OnInit {
     private _dateService: DateService,
     private _dataServices: DataServices,
     private _staticDataServices: StaticDataServices,
-    public cityAirportsStore: CityAirportsDomainModel
+    public cityAirportsStore: CityAirportsDomainModel,
+    public _appServices: AppServices
     ) {}
 
   // tslint:disable-next-line
@@ -79,14 +81,10 @@ export class SearchFlightComponent implements OnInit {
     this.isOneWaySearch = mode !== '' && mode === 'oneWay';
     if (!!this.isOneWaySearch) {
       this.searchFlight.removeControl('returnDate');
-      
-      let event = new CustomEvent('searchModeSelection', {detail: "oneWay"});
-			document.dispatchEvent(event);
+      this._appServices.trigger('searchModeSelection', 'oneWay');
     } else {
       this.searchFlight.addControl('returnDate', new FormControl('', Validators.required));
-
-      let event = new CustomEvent('searchModeSelection', {detail: "return"});
-			document.dispatchEvent(event);
+      this._appServices.trigger('searchModeSelection', 'return');
     }
   }
 

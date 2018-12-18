@@ -7,6 +7,6 @@ import { Injectable } from '@angular/core';
 export class AppServices {
 	public trigger(event: string, data?: any) {
 		let evt = new CustomEvent(event, { detail: data });
-		window.dispatchEvent(evt);
+		document.dispatchEvent(evt);
 	}
 }

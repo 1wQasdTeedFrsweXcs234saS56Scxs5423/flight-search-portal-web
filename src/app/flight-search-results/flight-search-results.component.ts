@@ -4,6 +4,7 @@ import { SearchResultsDomainModel } from '../domain-models/search-results.domain
 import { SearchResultFilter } from '../pipes/search-result-filter.pipe';
 import { SelectedFlightsDomainModel } from '../domain-models/selected-flights.domainmodel';
 import { ResolveCityName } from '../pipes/city-name.pipe';
+import { AppServices } from '../services/app/app.services';
 
 export const FLIGHT_SEARCH_RESULT_SELECTOR = 'flight-search-results';
 
@@ -20,7 +21,8 @@ export class FlightSearchResultsComponent {
 
   constructor(
     public _searchResultsStore: SearchResultsDomainModel,
-    public _selectedFlightsStore: SelectedFlightsDomainModel
+    public _selectedFlightsStore: SelectedFlightsDomainModel,
+    public _appServices: AppServices
   ) {}
 
   public searchFlight: FormGroup = new FormGroup({
@@ -59,7 +61,6 @@ export class FlightSearchResultsComponent {
     !!this.searchFlight.controls.return && this.searchFlight.controls.return.setValue('');
 
     // reset form
-    let event = new CustomEvent('resetSearchForm');
-    document.dispatchEvent(event);
+    this._appServices.trigger('resetSearchForm');
   }
 }

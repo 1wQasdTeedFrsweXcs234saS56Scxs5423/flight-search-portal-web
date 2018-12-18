@@ -98,13 +98,13 @@
           </div>
           <div class="value">
             <input id="return-journey-date" formControlName="returnDate" type="date" placeholder="Return" class="input-field input-field-date" (focus)="setReturnDateFlags();" (blur)="checkIfDateIsPresentDate('arrival');checkIfDateIsValid('arrival');checkIfReturnDateBeforeDepartureDate();isArrivalDateFocused = false"/>
-            <inline-error *ngIf="!isArrivalDateFocused && searchFlight.controls['returnDate'].touched && searchFlight.controls['returnDate'].hasError('required')" 
+            <inline-error *ngIf="!isArrivalDateFocused && searchFlight.controls['returnDate']?.touched && searchFlight.controls['returnDate'].hasError('required')" 
                           [errorMessage]="config.returnDateRequiredError"></inline-error>
 
-            <inline-error *ngIf="!isArrivalDateFocused && searchFlight.controls['returnDate'].touched && isReturnDateValid && !isReturnDateInPresent" 
+            <inline-error *ngIf="!isArrivalDateFocused && searchFlight.controls['returnDate']?.touched && isReturnDateValid && !isReturnDateInPresent" 
                           [errorMessage]="config.returnDateInPastError"></inline-error>
 
-            <inline-error *ngIf="!isArrivalDateFocused && searchFlight.controls['returnDate'].touched && !isReturnDateValid" 
+            <inline-error *ngIf="!isArrivalDateFocused && searchFlight.controls['returnDate']?.touched && !isReturnDateValid" 
                           [errorMessage]="config.returnDatePatternError" 
                           [substituteMessage]="config.dateFormat"></inline-error>
 
