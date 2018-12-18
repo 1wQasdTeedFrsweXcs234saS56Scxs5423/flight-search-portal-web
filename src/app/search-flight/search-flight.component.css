@@ -13,6 +13,17 @@ input, textarea {
   font-size: 1.6rem;
 }
 
+nav a {
+  background-color: #00838F;
+  color: white;
+  padding: 8px 16px;
+  vertical-align: middle;
+  line-height: 1.25;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
 .cd-tabs {
   position: relative;
   width: 90%;
@@ -24,22 +35,6 @@ input, textarea {
 .cd-tabs nav {
   overflow: auto;
   -webkit-overflow-scrolling: touch;
-}
-
-@media only screen and (min-width: 768px) {
-  .cd-tabs::after {
-    display: none;
-  }
-
-  .cd-tabs nav {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    -webkit-box-shadow: inset -2px 0 3px rgba(203, 196, 130, 0.06);
-    box-shadow: inset -2px 0 3px rgba(203, 196, 130, 0.06);
-    z-index: 1;
-  }
 }
 
 .cd-tabs__navigation {
@@ -84,26 +79,6 @@ input, textarea {
   cursor: default;
 }
 
-@media only screen and (min-width: 768px) {
-  .cd-tabs__navigation {
-    /* move the nav to the left on medium sized devices */
-    width: 80px;
-    float: left;
-  }
-  .cd-tabs__navigation a {
-    height: 80px;
-    width: 80px;
-    padding-top: 46px;
-  }
-  .cd-tabs__navigation a.cd-selected {
-    -webkit-box-shadow: inset 2px 0 0 #f05451;
-    box-shadow: inset 2px 0 0 #f05451;
-  }
-  .cd-tabs__navigation a::before {
-    top: 24px;
-  }
-}
-
 .cd-tabs__content {
   background: #ffffff;
 }
@@ -122,59 +97,6 @@ input, textarea {
   line-height: 1.6;
   color: #8493bf;
   margin-bottom: 2em;
-}
-
-@media only screen and (min-width: 960px) {
-
-  .cd-tabs nav {
-    position: relative;
-    float: none;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-  }
-  
-  .cd-tabs__navigation {
-    /* tabbed navigation on top on big devices */
-    width: auto;
-    background-color: #fff;
-  }
-
-  .cd-tabs__navigation a {
-    height: 60px;
-    line-height: 60px;
-    width: auto;
-    text-align: left;
-    padding: 0 2.8em 0 2.8rem;
-  }
-
-  .cd-tabs__navigation a.cd-selected {
-    border-top: 2px solid #ff0000;
-    border-left: 2px solid #ff0000;
-    border-right: 2px solid #ff0000;
-  }
-
-  .cd-tabs__navigation a::before {
-    top: 50%;
-    margin-top: -8px;
-    margin-left: 0;
-    left: 40px;
-  }
-
-  .cd-tabs__content {
-    min-height: 0;
-  }
-  .cd-tabs__content li {
-    padding: 30px;
-  }
-  .cd-tabs__content li p {
-    font-size: 1.6rem;
-  }
-
-  .cd-selected {
-    border: 2px solid red;
-    border-radius: 5px;
-    border-top-left-radius: 0;
-  }
 }
 
 .search-suggestions {
@@ -327,7 +249,6 @@ div.input .value .input-field-date {
   background-color: #00666f;
 }
 
-/* The switch - the box around the slider */
 .switch {
   position: relative;
   display: inline-block;
@@ -335,14 +256,12 @@ div.input .value .input-field-date {
   height: 22px;
 }
 
-/* Hide default HTML checkbox */
 .switch input {
   opacity: 0;
   width: 0;
   height: 0;
 }
 
-/* The slider */
 .slider {
   position: absolute;
   cursor: pointer;
@@ -381,7 +300,6 @@ input:checked + .slider:before {
   transform: translateX(15px);
 }
 
-/* Rounded sliders */
 .slider.round {
   border-radius: 34px;
 }
@@ -418,6 +336,56 @@ input:checked + .slider:before {
   .city-options {
     width: 110%;
     border-top: 1px solid #777575;
+  }
+
+  .cd-tabs nav {
+    position: relative;
+    float: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+  
+  .cd-tabs__navigation {
+    /* tabbed navigation on top on big devices */
+    width: auto;
+    background-color: #fff;
+  }
+
+  .cd-tabs__navigation a {
+    height: 60px;
+    line-height: 60px;
+    width: auto;
+    text-align: left;
+    padding: 0 2.8em 0 2.8rem;
+  }
+
+  .cd-tabs__navigation a.cd-selected {
+    border-top: 2px solid #ff0000;
+    border-left: 2px solid #ff0000;
+    border-right: 2px solid #ff0000;
+  }
+
+  .cd-tabs__navigation a::before {
+    top: 50%;
+    margin-top: -8px;
+    margin-left: 0;
+    left: 40px;
+  }
+
+  .cd-tabs__content {
+    min-height: 0;
+  }
+  .cd-tabs__content li {
+    padding: 30px;
+  }
+  .cd-tabs__content li p {
+    font-size: 1.6rem;
+  }
+
+  .cd-selected {
+    border: 2px solid red;
+    border-radius: 5px;
+    border-top-left-radius: 0;
   }
 }
 
@@ -466,10 +434,6 @@ input:checked + .slider:before {
 
   .cd-tabs nav {
     display: none;
-  }
-
-  .cd-tabs__content {
-    border: 0.2rem solid #ff0000;
   }
 
   .cd-tabs__content li {
@@ -632,10 +596,6 @@ input:checked + .slider:before {
 
   div.input .value .input-field[type="date"] {
     width: 75%;
-  }
-
-  .cd-tabs__content {
-    border: 0.2rem solid #ff0000;
   }
 
   .trip-type-btn {

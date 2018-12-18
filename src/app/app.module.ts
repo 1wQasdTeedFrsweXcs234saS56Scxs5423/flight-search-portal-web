@@ -17,21 +17,14 @@ import { AppComponent } from './app.component';
 import { SearchFlightComponent } from './search-flight/search-flight.component';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
-import { AboutComponent } from './about';
 import { NoContentComponent } from './no-content';
 import { FlightSearchResultsComponent } from './flight-search-results';
 import { ResultFlightComponent } from './flight-search-results/result-flight';
 import { SearchResultFilterComponent } from './search-result-filter/search-result-filter.component'
 import { ResolveCityName } from './pipes/city-name.pipe';
 import { SearchResultFilter } from './pipes/search-result-filter.pipe';
-import { XLargeDirective } from './home/x-large';
-import { DevModuleModule } from './+dev-module';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-
-
-import '../styles/styles.scss';
-import '../styles/headings.css';
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -53,14 +46,12 @@ interface StoreType {
   declarations: [
     AppComponent,
     SearchFlightComponent,
-    AboutComponent,
     NoContentComponent,
     FlightSearchResultsComponent,
     ResultFlightComponent,
     SearchResultFilterComponent,
     ResolveCityName,
-    SearchResultFilter,
-    XLargeDirective
+    SearchResultFilter
   ],
   /**
    * Import Angular's modules.
@@ -76,14 +67,7 @@ interface StoreType {
     RouterModule.forRoot(ROUTES, {
       useHash: Boolean(history.pushState) === false,
       preloadingStrategy: PreloadAllModules
-    }),
-
-    /**
-     * This section will import the `DevModuleModule` only in certain build types.
-     * When the module is not imported it will get tree shaked.
-     * This is a simple example, a big app should probably implement some logic
-     */
-    ...environment.showDevModule ? [ DevModuleModule ] : [],
+    })
   ],
   /**
    * Expose our Services and Providers into Angular's dependency injection.

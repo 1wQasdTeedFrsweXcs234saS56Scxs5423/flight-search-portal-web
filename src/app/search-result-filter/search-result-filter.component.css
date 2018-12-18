@@ -111,10 +111,6 @@
   margin-left: 0.8rem;
 }
 
-@media ( min-width: 960px ) {
-  
-}
-
 @media ( min-width: 760px ) and ( max-width: 959px ) {
  .valBox {
   font-size: 1.4rem;
