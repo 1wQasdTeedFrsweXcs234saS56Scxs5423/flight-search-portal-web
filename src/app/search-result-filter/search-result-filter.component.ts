@@ -1,6 +1,7 @@
 import { Component, HostListener } from '@angular/core';
+
+import  * as models from '../models/models';
 import { SearchResultsDomainModel } from '../domain-models/search-results.domainmodel';
-import  * as models from '../models/models'
 
 export const SEARCH_RESULT_FILTER_SELECTOR = 'search-result-filter';
 

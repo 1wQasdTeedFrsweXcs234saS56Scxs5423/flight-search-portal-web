@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
-import { CityAirportsDomainModel } from '../../domain-models/city-airports.domainmodel';
-import * as models from '../../models/models';
+
 import * as _ from 'lodash';
+
+import * as models from '../../models/models';
+import { CityAirportsDomainModel } from '../../domain-models/city-airports.domainmodel';
 
 @Injectable({
 	providedIn: 'root'

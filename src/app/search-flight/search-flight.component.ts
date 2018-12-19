@@ -1,17 +1,16 @@
 import { Component, Input, OnInit, HostListener } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import * as moment from 'moment';
 
-import { CityAirportsDomainModel } from '../domain-models/city-airports.domainmodel';
+import * as moment from 'moment';
+import { faSearchPlus } from '@fortawesome/free-solid-svg-icons';
+
 import { CONFIG } from './search-flight.constant';
+import * as models from '../models/models';
+import { CityAirportsDomainModel } from '../domain-models/city-airports.domainmodel';
+import { AppServices } from '../services/app/app.services';
+import { DateService } from '../services/date-service/date.service';
 import { DataServices } from '../services/data-services/data-services';
 import { StaticDataServices } from '../services/data-services/static-services';
-import { DateService } from '../services/date-service/date.service';
-
-import { faSearchPlus } from '@fortawesome/free-solid-svg-icons';
-import { AppServices } from '../services/app/app.services';
-
-import * as models from '../models/models';
 
 export const SEARCH_FLIGHT_SELECTOR = 'search-flight';
 
@@ -39,16 +38,12 @@ export class SearchFlightComponent implements OnInit {
   public isReturnDateValid: boolean = true;
   public isReturnDateBeforeDepartureDate: boolean = false;
   public isNumberOfPassengersFocused: boolean = false;
-
   public fromCityAirportsSearchList: models.CityAirportModel[] = [];
   public toCityAirportsSearchList: models.CityAirportModel[] = [];
-
   public isSelectingFromCity: boolean = false;
   public isSelectingToCity: boolean = false;
   public isTravelEconomy: boolean = true;
-
   public faSearchPlus: any = faSearchPlus;
- 
   public searchFlight: FormGroup = new FormGroup({
     departureCity: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(50), Validators.pattern(this.citySearchNamePattern)]),
     arrivalCity: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(50), Validators.pattern(this.citySearchNamePattern)]),

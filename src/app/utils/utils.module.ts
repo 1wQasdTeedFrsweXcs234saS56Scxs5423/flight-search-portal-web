@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
-import { InlineErrorComponent } from './inline-error/inline-error.component';
+
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
+import { InlineErrorComponent } from './inline-error/inline-error.component';
 
 @NgModule({
 	imports: [

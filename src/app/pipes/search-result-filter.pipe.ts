@@ -1,4 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
+
 import * as models from '../models/models';
 
 @Pipe({ name: 'searchResultFilter' })

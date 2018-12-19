@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+
 import { APP_CONFIG } from '../../app.config';
 import { CityAirportsModelMapper } from '../../model-mappers/city-airport.modelmapper';
 import { CityAirportsDomainModel } from '../../domain-models/city-airports.domainmodel';

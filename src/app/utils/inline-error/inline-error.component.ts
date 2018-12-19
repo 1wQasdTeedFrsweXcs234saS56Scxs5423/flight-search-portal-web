@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+
 import * as fontAwesomeIcons from '@fortawesome/free-solid-svg-icons';
 
 @Component({

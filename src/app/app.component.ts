@@ -1,6 +1,6 @@
 import { Component, ViewEncapsulation } from '@angular/core';
+
 import { environment } from 'environments/environment';
-import { faFighterJet } from '@fortawesome/free-solid-svg-icons';
 
 export const ROOT_SELECTOR = 'app';
 
@@ -15,9 +15,7 @@ export const ROOT_SELECTOR = 'app';
 })
 export class AppComponent {
   public showDevModule: boolean = environment.showDevModule;
-
   public isOneWaySearch: boolean = true;
-  public faFighterJet: any = faFighterJet;
   public defaultSearchFlightMode: string = 'oneWay';
 
   public searchMode(mode: string) {
