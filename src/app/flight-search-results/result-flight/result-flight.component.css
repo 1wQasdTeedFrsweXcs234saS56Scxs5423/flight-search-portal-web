@@ -1,10 +1,10 @@
 .result-flight {
   width: 95%;
-  border: 1px solid;
-  border-radius: 5px;
-  padding: 5px;
+  border: 0.1rem solid;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
   display: flex;
-  margin: 15px 0;
+  margin: 1.5rem 0;
 }
 
 .result-flight:hover {
@@ -52,10 +52,6 @@
 
 .city, .flight-date-time {
   font-weight: bold;
-}
-
-@media ( min-width: 960px ) {
-  
 }
 
 @media ( min-width: 760px ) and ( max-width: 959px ) {

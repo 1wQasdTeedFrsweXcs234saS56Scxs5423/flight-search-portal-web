@@ -16,29 +16,29 @@ input, textarea {
 nav a {
   background-color: #00838F;
   color: white;
-  padding: 8px 16px;
+  padding: 0.8rem 1.6rem;
   vertical-align: middle;
   line-height: 1.25;
   text-align: center;
   text-decoration: none;
-  border-radius: 4px;
+  border-radius: 0.4rem;
 }
 
 .cd-tabs {
   position: relative;
   width: 90%;
-  max-width: 960px;
+  max-width: 96.0rem;
   margin: 2rem auto;
   background: #fff;
 }
 
 .cd-tabs nav {
-  overflow: auto;
+  overflow: hidden;
   -webkit-overflow-scrolling: touch;
 }
 
 .cd-tabs__navigation {
-  width: 360px;
+  width: 36.0rem;
 }
 
 .cd-tabs__navigation:after {
@@ -54,13 +54,13 @@ nav a {
 .cd-tabs__navigation a {
   position: relative;
   display: block;
-  height: 60px;
-  width: 60px;
+  height: 6.0rem;
+  width: 6.0rem;
   text-align: center;
   font-size: 1.6rem;
   font-weight: bold;
   color: #fff;
-  padding-top: 35px;
+  padding-top: 3.5rem;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
@@ -74,8 +74,8 @@ nav a {
 .cd-tabs__navigation a.cd-selected {
   background: #ff0000;
   color: #fff;
-  -webkit-box-shadow: inset 0 2px 0 #f05451;
-  box-shadow: inset 0 2px 0 #f05451;
+  -webkit-box-shadow: inset 0 0.2rem 0 #f05451;
+  box-shadow: inset 0 0.2rem 0 #f05451;
   cursor: default;
 }
 
@@ -105,7 +105,7 @@ nav a {
 
 div.input {
   width: 100%;
-  padding: 5px 0;
+  padding: 0.5rem 0;
 }
 
 div.input .label {
@@ -130,11 +130,11 @@ div.input .value .input-field {
 }
 
 div.input .value .input-field-passengers {
-  max-width: 50px;
+  max-width: 5.0rem;
 }
 
 div.input .value .input-field-date {
-  max-width: 225px;
+  max-width: 22.5rem;
 }
 
 .smart-search-input {
@@ -145,12 +145,12 @@ div.input .value .input-field-date {
 .city-options {
   position: absolute;
   width: 100%;
-  height: 209px;
+  height: 20.9rem;
   background: #fff;
-  border: 1px solid #777575;
+  border: 0.1rem solid #777575;
   border-top: none;
-  border-bottom-right-radius: 5px;
-  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
   overflow-y: auto;
   z-index: 1;
 }
@@ -158,21 +158,21 @@ div.input .value .input-field-date {
 .city-options-no-result {
   position: absolute;
   width: 100%;
-  max-height: 209px;
+  max-height: 20.9rem;
   background: #fff;
-  border: 1px solid #777575;
+  border: 0.1rem solid #777575;
   border-top: none;
-  border-bottom-right-radius: 5px;
-  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
   overflow-y: auto;
 }
 
 .option {
   display: flex;
-  min-height: 35px;
-  padding: 5px;
+  min-height: 3.5rem;
+  padding: 0.5rem;
   color: #777575;
-  border-bottom: 1px solid #777575;
+  border-bottom: 0.1rem solid #777575;
 }
 
 .option:hover {
@@ -200,17 +200,17 @@ div.input .value .input-field-date {
 }
 
 .option .airport-details .airport-city {
-  margin-top: 5px;
+  margin-top: 0.5rem;
 }
 
 .option .airport-details .airport-name {
-  font-size: 20px;
+  font-size: 2.0rem;
   font-weight: 500;
 }
 
 .btn-group button {
   background-color: #00838F; 
-  border: 1px solid #00838F; 
+  border: 0.1rem solid #00838F; 
   color: white; 
   padding: 0.2rem 2rem; 
   cursor: pointer; 
@@ -220,19 +220,19 @@ div.input .value .input-field-date {
 
 .cd-btn-selected {
   background-color: #ff0000 !important; 
-  border: 1px solid #ff0000 !important; 
+  border: 0.1rem solid #ff0000 !important; 
   cursor: not-allowed; 
 }
 
 .btn-group button.one-way {
-  border-top-left-radius: 15px;
-  border-bottom-left-radius: 15px;
+  border-top-left-radius: 1.5rem;
+  border-bottom-left-radius: 1.5rem;
   margin-left: 1rem; 
 }
 
 .btn-group button.round-trip {
-  border-top-right-radius: 15px;
-  border-bottom-right-radius: 15px;
+  border-top-right-radius: 1.5rem;
+  border-bottom-right-radius: 1.5rem;
 }
 
 .btn-group:after {
@@ -252,8 +252,8 @@ div.input .value .input-field-date {
 .switch {
   position: relative;
   display: inline-block;
-  width: 40px;
-  height: 22px;
+  width: 4.0rem;
+  height: 2.2rem;
 }
 
 .switch input {
@@ -277,10 +277,10 @@ div.input .value .input-field-date {
 .slider:before {
   position: absolute;
   content: "";
-  height: 18px;
-  width: 18px;
-  left: 4px;
-  bottom: 2px;
+  height: 1.8rem;
+  width: 1.8rem;
+  left: 0.4rem;
+  bottom: 0.2rem;
   background-color: white;
   -webkit-transition: .4s;
   transition: .4s;
@@ -291,17 +291,17 @@ input:checked + .slider {
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
+  box-shadow: 0 0 0.1rem #2196F3;
 }
 
 input:checked + .slider:before {
-  -webkit-transform: translateX(15px);
-  -ms-transform: translateX(15px);
-  transform: translateX(15px);
+  -webkit-transform: translateX(1.5rem);
+  -ms-transform: translateX(1.5rem);
+  transform: translateX(1.5rem);
 }
 
 .slider.round {
-  border-radius: 34px;
+  border-radius: 3.4rem;
 }
 
 .slider.round:before {
@@ -335,7 +335,7 @@ input:checked + .slider:before {
 
   .city-options {
     width: 110%;
-    border-top: 1px solid #777575;
+    border-top: 0.1rem solid #777575;
   }
 
   .cd-tabs nav {
@@ -352,39 +352,39 @@ input:checked + .slider:before {
   }
 
   .cd-tabs__navigation a {
-    height: 60px;
-    line-height: 60px;
+    height: 6.0rem;
+    line-height: 6.0rem;
     width: auto;
     text-align: left;
     padding: 0 2.8em 0 2.8rem;
   }
 
   .cd-tabs__navigation a.cd-selected {
-    border-top: 2px solid #ff0000;
-    border-left: 2px solid #ff0000;
-    border-right: 2px solid #ff0000;
+    border-top: 0.2rem solid #ff0000;
+    border-left: 0.2rem solid #ff0000;
+    border-right: 0.2rem solid #ff0000;
   }
 
   .cd-tabs__navigation a::before {
     top: 50%;
-    margin-top: -8px;
+    margin-top: -0.8rem;
     margin-left: 0;
-    left: 40px;
+    left: 4.0rem;
   }
 
   .cd-tabs__content {
     min-height: 0;
   }
   .cd-tabs__content li {
-    padding: 30px;
+    padding: 3.0rem;
   }
   .cd-tabs__content li p {
     font-size: 1.6rem;
   }
 
   .cd-selected {
-    border: 2px solid red;
-    border-radius: 5px;
+    border: 0.2rem solid red;
+    border-radius: 0.5rem;
     border-top-left-radius: 0;
   }
 }
@@ -392,7 +392,7 @@ input:checked + .slider:before {
 @media ( min-width: 760px ) and ( max-width: 959px ) {
   .city-options {
     width: 160%;
-    border: 1px solid #777575;
+    border: 0.1rem solid #777575;
   }
 
   div.input .label label {
@@ -422,7 +422,7 @@ input:checked + .slider:before {
   .button-primary-small {
     display: inline-block;
     font-size: 2.0rem;
-    margin-top: 6px;
+    margin-top: 0.6rem;
   }
 
   .cd-tabs {
@@ -443,7 +443,7 @@ input:checked + .slider:before {
   div.input {
     display: inline-block;
     width: 15%;
-    padding: 5px 0;
+    padding: 0.5rem 0;
     vertical-align: top;
     margin-right: 2rem;
   }
@@ -502,7 +502,7 @@ input:checked + .slider:before {
     width: 8%;
     position: relative;
     top: 0;
-    left: 8px;
+    left: 0.8rem;
   }
 
   div.input.search-input {
@@ -513,7 +513,7 @@ input:checked + .slider:before {
 
 @media ( min-width: 480px ) and ( max-width: 759px ) {
   div.input .label {
-    padding-bottom: 5px;
+    padding-bottom: 0.5rem;
   }
 
   div.input .label label {
@@ -575,7 +575,7 @@ input:checked + .slider:before {
   div.input {
     display: inline-block;
     width: 15%;
-    padding: 5px 0;
+    padding: 0.5rem 0;
     vertical-align: top;
     margin-right: 1.5rem;
   }
@@ -629,14 +629,14 @@ input:checked + .slider:before {
 
   .city-options {
     width: 160%;
-    border: 1px solid #777575;
+    border: 0.1rem solid #777575;
   }
 
   div.input.passenger-travel-class {
     width: 8%;
     position: relative;
     top: 0;
-    left: 8px;
+    left: 0.8rem;
   }
 
   div.input.search-input {
@@ -647,7 +647,7 @@ input:checked + .slider:before {
   .button-primary-small {
     display: inline-block;
     font-size: 2.0rem;
-    margin-top: 6px;
+    margin-top: 0.6rem;
   }
 }
 
@@ -709,13 +709,13 @@ input:checked + .slider:before {
   }
 
   .cd-tabs__content {
-    height: 250px;
+    height: 25.0rem;
   }
 
   div.input {
     display: inline-block;
     width: 47%;
-    padding: 5px 0;
+    padding: 0.5rem 0;
     vertical-align: top;
     margin-right: 0.5rem;
   }
@@ -765,7 +765,7 @@ input:checked + .slider:before {
 
   .city-options {
     width: 160%;
-    border: 1px solid #777575;
+    border: 0.1rem solid #777575;
   }
 
   div.input.passenger-travel-class {

@@ -30,8 +30,8 @@ input, textarea {
 
 header {
   position: relative;
-  height: 160px;
-  line-height: 180px;
+  height: 16.0rem;
+  line-height: 18.0rem;
   text-align: center;
 }
 

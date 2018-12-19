@@ -11,12 +11,12 @@ html, body{
 
 .search-component {
   width: 40%;
-  border: 1px solid black;
+  border: 0.1rem solid black;
 }
 
 .search-results-component {
   width: 60%;
-  border: 1px solid black;
+  border: 0.1rem solid black;
   position: relative;
 }
 
@@ -26,7 +26,7 @@ input[type="date"]::-webkit-inner-spin-button {
 }
 
 input[type="date"]::-webkit-calendar-picker-indicator {
-  margin: -6px;
+  margin: -0.6rem;
 }
 
 .button-primary {
@@ -85,7 +85,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .container {
   position: relative;
   padding-left: 2.5rem;
-  margin-bottom: 12px;
+  margin-bottom: 1.2rem;
   margin-right: 1.2rem;
   cursor: pointer;
   -webkit-user-select: none;
@@ -108,7 +108,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   width: 2.0rem;
   background-color: #eee;
   border-radius: 50%;
-  border: 1px solid black;
+  border: 0.1rem solid black;
 }
 
 .container:hover input ~ .checkmark {
@@ -130,10 +130,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .container .checkmark:after {
-  top: 5px;
-  left: 5px;
-  width: 8px;
-  height: 8px;
+  top: 0.5rem;
+  left: 0.5rem;
+  width: 0.8rem;
+  height: 0.8rem;
   border-radius: 50%;
   background: white;
 }
