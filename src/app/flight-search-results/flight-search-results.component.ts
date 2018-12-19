@@ -43,9 +43,6 @@ export class FlightSearchResultsComponent {
   public calculateTripCost($event: any, tripType: string) {
     if (this._searchResultsStore.state.isSearchOneWay) {
       let onwardsFlight = this.searchFlight.controls['onwards'].value;
-      alert(onwardsFlight);
-    } else {
-
     }
   }
 

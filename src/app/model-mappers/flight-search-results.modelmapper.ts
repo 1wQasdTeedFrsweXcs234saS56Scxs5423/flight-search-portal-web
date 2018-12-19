@@ -62,8 +62,6 @@ export class FlightSearchResultsModelmapper {
       searchResults['returnFlightSearchResults'] = returnSearchResults;
     }
 
-    alert(returnSearchResults.length + ' ' + onwardSearchResults.length);
-
     return searchResults;
   }
 }

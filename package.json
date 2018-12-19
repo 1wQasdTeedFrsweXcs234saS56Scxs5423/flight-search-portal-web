@@ -80,7 +80,10 @@
     "webdriver:start": "node ./node_modules/protractor/bin/webdriver-manager start",
     "webdriver:update": "node ./node_modules/protractor/bin/webdriver-manager update",
     "webpack-dev-server": "node --max_old_space_size=4096 node_modules/webpack-dev-server/bin/webpack-dev-server.js",
-    "webpack": "node --max_old_space_size=4096 node_modules/webpack/bin/webpack.js"
+    "webpack": "node --max_old_space_size=4096 node_modules/webpack/bin/webpack.js",
+    "firebase:login": "firebase login",
+    "firebase:init": "firebase init",
+    "firebase:deploy": "firebase deploy"
   },
   "dependencies": {
     "@angular/animations": "^6.0.6",
@@ -130,6 +133,7 @@
     "expose-loader": "^0.7.5",
     "file-loader": "^1.1.11",
     "find-root": "^1.1.0",
+    "firebase-tools": "^6.1.2",
     "gh-pages": "^1.2.0",
     "html-webpack-plugin": "^3.2.0",
     "imports-loader": "^0.8.0",

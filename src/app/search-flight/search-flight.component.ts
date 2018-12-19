@@ -38,6 +38,7 @@ export class SearchFlightComponent implements OnInit {
   public isReturnDateInPresent: boolean = false;
   public isReturnDateValid: boolean = true;
   public isReturnDateBeforeDepartureDate: boolean = false;
+  public isNumberOfPassengersFocused: boolean = false;
 
   public fromCityAirportsSearchList: models.CityAirportModel[] = [];
   public toCityAirportsSearchList: models.CityAirportModel[] = [];
