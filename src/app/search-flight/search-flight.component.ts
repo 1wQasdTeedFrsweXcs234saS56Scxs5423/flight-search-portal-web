@@ -50,9 +50,9 @@ export class SearchFlightComponent implements OnInit {
   public faSearchPlus: any = faSearchPlus;
  
   public searchFlight: FormGroup = new FormGroup({
-    departureCity: new FormControl('PNQ', [Validators.required, Validators.minLength(3), Validators.maxLength(50), Validators.pattern(this.citySearchNamePattern)]),
-    arrivalCity: new FormControl('BLR', [Validators.required, Validators.minLength(3), Validators.maxLength(50), Validators.pattern(this.citySearchNamePattern)]),
-    departureDate: new FormControl('12/10/2018', Validators.required),
+    departureCity: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(50), Validators.pattern(this.citySearchNamePattern)]),
+    arrivalCity: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(50), Validators.pattern(this.citySearchNamePattern)]),
+    departureDate: new FormControl('', Validators.required),
     returnDate: new FormControl('', Validators.required),
     numberOfPassengers: new FormControl('1', [Validators.required, Validators.minLength(1), Validators.maxLength(1)]),
     travelClass: new FormControl('economy', Validators.required)
